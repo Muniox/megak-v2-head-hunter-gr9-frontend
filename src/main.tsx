@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import { App } from './App';
-import './index.postcss';
 import { SecondDefaultComponent } from './components/SecondDefaultComponent';
+import './index.postcss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

@@ -1,6 +1,5 @@
+import {UserDetails} from '@backendTypes';
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
-import { UserDetails } from '@backendTypes';
 
 export const DefaultComponent = (props: UserDetails) => {
   const {email, firstName} = props;
