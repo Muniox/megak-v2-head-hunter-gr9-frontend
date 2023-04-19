@@ -3,13 +3,13 @@ import React from 'react';
 interface Props {
     isSuccessful: boolean
     reason: string
-}
+};
 
 export const RegistrationResultPage = ({ isSuccessful, reason }: Props) => {
 
     const handleReturn = () => {
-        console.log('return')
-    }
+        console.log('return');
+    };
     return (
     <div className="flex justify-center items-center h-screen">
         <div className="w-500 h-500 flex flex-col justify-center items-center bg-black shadow-lg p-8">
@@ -23,7 +23,7 @@ export const RegistrationResultPage = ({ isSuccessful, reason }: Props) => {
         </div>
     </div>
     )
-}
+};
 
 
 
