@@ -3,9 +3,6 @@
     "browser": true
   },
   "extends": [
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:import/recommended",
