@@ -1,3 +1,18 @@
 import React, { FC } from 'react';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Home} from "./components/views/Home/Home";
 
-export const App: FC = () => <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+export const App: FC = () => {
+
+return (
+    <BrowserRouter>
+
+        <Routes>
+            <Route path='/' element={<Home/>}/>
+        </Routes>
+    </BrowserRouter>
+);
+}
+
+
+
