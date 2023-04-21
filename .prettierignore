@@ -1,6 +1,6 @@
 node_modules/
 dist/
 vite.config.ts
-tailwind.config.js
+tailwind.config.cjs
 .prettierrc
 vite-env.d.ts
