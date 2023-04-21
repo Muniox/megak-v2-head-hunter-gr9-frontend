@@ -1,3 +1,4 @@
 import React, { FC } from 'react';
+import { LoginForm } from './components/Login/LoginForm';
 
-export const App: FC = () => <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+export const App: FC = () => <LoginForm/>

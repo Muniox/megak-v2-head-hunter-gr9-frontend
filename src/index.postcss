@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .container {
+    @apply bg-unnamed-color-222224 h-screen w-screen max-w-none text-unnamed-color-f7f7f7
+  }
+  .login-form {
+    @apply flex flex-col relative top-1/2 mx-auto w-350 h-200
+  }
+  .credentials {
+    @apply flex flex-col
+  }
+  .email {
+    @apply bg-unnamed-color-292A2B w-350 h-40 mb-4 p-3
+  }
+  .password {
+    @apply bg-unnamed-color-292A2B w-350 h-40 mb-4 p-3
+  }
+  .forgotten-pwd {
+    @apply text-right mb-4
+  }
+  .register {
+    @apply flex absolute top-40 w-fit pt-2
+  }
+  .register-link {
+    @apply ml-2 underline font-bold
+  }
+  .login-btn {
+    @apply flex absolute top-40 right-0 items-center justify-center bg-unnamed-color-e02735 w-91 h-39 opacity-100
+  }
+  .login-btn-text {
+    @apply relative flex font-cataman text-base tracking-normal opacity-100
+  }
+}
