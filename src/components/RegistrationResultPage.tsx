@@ -13,9 +13,9 @@ export const RegistrationResultPage = ({ isSuccessful, reason }: Props) => {
     <div className="flex justify-center items-center h-screen">
       <div className="w-500 h-500 flex flex-col justify-center items-center bg-black shadow-lg p-8">
         {isSuccessful ? (
-          <h1 className="text-white text-5xl font-bold mb-10">Thank you for registration</h1>
+          <h1 className="text-white text-5xl font-bold mb-10">Dziękujemy za rejestrację!</h1>
         ) : (
-          <h1 className="text-white text-5xl font-bold mb-10">Registration unsuccessful, please {reason}</h1>
+          <h1 className="text-white text-5xl font-bold mb-10">Rejestracja nieudana. {reason}</h1>
         )}
         <button
           onClick={handleReturn}
