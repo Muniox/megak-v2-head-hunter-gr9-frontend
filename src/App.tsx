@@ -1,3 +1,15 @@
-import React, { FC } from 'react';
+import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import {BrowserRouter, Route, Routes } from "react-router-dom";
 
-export const App: FC = () => <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+import {LoginPage} from "./components/LoginPage";
+
+export const App = () => (
+        <div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/login" element={<LoginPage/>} />
+                </Routes>
+            </BrowserRouter>
+        </div>
+    )
