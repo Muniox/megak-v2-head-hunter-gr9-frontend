@@ -24,7 +24,7 @@
     }
   },
   "rules": {
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error", "unix"],
     "react/function-component-definition": [
       2,
       {
@@ -37,10 +37,11 @@
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "import/prefer-default-export": [0],
     "import/extensions": [0],
-    "import/no-unresolved": [ 2, {
-      "ignore": [
-        "^types$"
-      ]
-    }]
+    "import/no-unresolved": [
+      2,
+      {
+        "ignore": ["^types$"]
+      }
+    ]
   }
 }
