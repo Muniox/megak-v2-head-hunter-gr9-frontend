@@ -4,19 +4,24 @@
 
 @layer components {
   .container {
-    @apply bg-unnamed-color-222224 h-screen w-screen max-w-none text-unnamed-color-f7f7f7
+    @apply bg-primary-color text-primary-font-color h-screen w-screen max-w-none
   }
   .login-form {
-    @apply flex flex-col relative top-1/2 mx-auto w-350 h-200
+    @apply flex flex-col relative top-1/2 mx-auto w-350 h-56
   }
   .credentials {
     @apply flex flex-col
   }
-  .email {
-    @apply bg-unnamed-color-292A2B w-350 h-40 mb-4 p-3
+  .credentials-input {
+    @apply bg-secondary-color w-350 h-10 mb-4 p-3
   }
-  .password {
-    @apply bg-unnamed-color-292A2B w-350 h-40 mb-4 p-3
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  .credentials-input::placeholder {
+    @apply text-primary-placeholder-font-color opacity-100
+  }
+  /* Microsoft Edge */
+  .credentials-input::-ms-input-placeholder {
+    @apply text-primary-placeholder-font-color
   }
   .forgotten-pwd {
     @apply text-right mb-4
@@ -28,7 +33,7 @@
     @apply ml-2 underline font-bold
   }
   .login-btn {
-    @apply flex absolute top-40 right-0 items-center justify-center bg-unnamed-color-e02735 w-91 h-39 opacity-100
+    @apply bg-login-btn-color flex absolute top-40 right-0 items-center justify-center w-20 h-10 opacity-100
   }
   .login-btn-text {
     @apply relative flex font-cataman text-base tracking-normal opacity-100

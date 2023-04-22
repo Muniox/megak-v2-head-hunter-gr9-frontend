@@ -5,8 +5,8 @@ export const LoginForm = () =>
   <div className="container">
     <form method="post" className="login-form">
       <div className="credentials">
-        <input type="email" className="email" placeholder="E-mail" />
-        <input type="password" className="password" placeholder="Hasło" />
+        <input type="email" className="credentials-input" placeholder="E-mail" />
+        <input type="password" className="credentials-input" placeholder="Hasło" />
         <Link to="/" className="forgotten-pwd">Zapomniałeś hasła?</Link>
         <div className="register">
           Nie masz konta?<Link to="/" className="register-link">Zarejestruj się</Link>
