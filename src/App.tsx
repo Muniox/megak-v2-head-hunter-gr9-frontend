@@ -1,4 +1,9 @@
 import React, { FC } from 'react';
-import { LoginForm } from './components/Login/LoginForm';
+import { Logo } from './assets';
 
-export const App: FC = () => <LoginForm/>
+export const App: FC = () => (
+  <h1>
+    Hello Group 9 ❤️
+    <img src={Logo} alt="BackArrow" />
+  </h1>
+);
