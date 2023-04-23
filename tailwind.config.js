@@ -35,7 +35,7 @@ module.exports = {
       'dropdown-svg-and-search-placeholder-color': '#666666',
       'right-arrow-svg-color': '#333333',
       'filter-svg-color': '#4D4D4D',
-      'student-information-field-color': '#222324',
+      'student-information-field-color': '#222324', 
       'student-ratings-font-color': '#9E9E9E',
       'filter-window-btn-color': '#172A35',
       'filter-window-color': '#0A0A0A',
