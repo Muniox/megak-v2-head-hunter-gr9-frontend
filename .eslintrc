@@ -22,15 +22,8 @@
         "project": ["./tsconfig.json"]
       },
       "node": {
-        "paths": [
-          "src"
-        ],
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
   },
@@ -46,6 +39,7 @@
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": [0],
     "import/extensions": [0],
     "import/no-unresolved": [
