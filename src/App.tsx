@@ -1,15 +1,9 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import {BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { FC } from 'react';
+import { Logo } from './assets';
 
-import {LoginPage} from "./components/LoginPage";
-
-export const App = () => (
-        <div>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/login" element={<LoginPage/>} />
-                </Routes>
-            </BrowserRouter>
-        </div>
-    )
+export const App: FC = () => (
+    <h1>
+        Hello Group 9 ❤️
+        <img src={Logo} alt="BackArrow" />
+    </h1>
+);

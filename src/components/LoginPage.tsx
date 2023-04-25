@@ -1,10 +1,15 @@
+// eslint-disable-next-line import/no-unresolved
 import React from 'react';
+// eslint-disable-next-line import/no-unresolved
 import { useForm } from 'react-hook-form';
+// eslint-disable-next-line import/no-unresolved
 import * as yup from 'yup';
+// eslint-disable-next-line import/no-unresolved
 import { yupResolver } from '@hookform/resolvers/yup';
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies,import/no-unresolved
 import { Link } from "react-router-dom";
-import Logo from "../assets/logo.png";
+// eslint-disable-next-line import/no-unresolved
+import Logo from "../assets/img/Logo.png"
 
 interface LoginCredentials {
     email: string,
@@ -41,7 +46,7 @@ export const LoginPage: React.FC = () => {
     const btnTransition = "transition ease-in-out delay-500 hover:-translate-y-1 hover:scale-105 duration-200"
 
     return (
-        <div className="flex flex-col items-center justify-center w-full h-screen py-0 bg-black-800">
+        <div className="flex flex-col items-center justify-center w-full h-screen py-0 bg-primary-color">
             <div className="flex flex-col items-center justify-center w-3/4 h-screen">
                 <img className="mx-auto w-28 " src={Logo} alt="logo" />
                 <form className="w-3/5 max-w-lg min-w-fit my-4" onSubmit={handleSubmit(onSubmit)}>
@@ -50,7 +55,7 @@ export const LoginPage: React.FC = () => {
                              // eslint-disable-next-line react/jsx-props-no-spreading
                             {...register("email")}
                             type="email"
-                            className="w-full border-none bg-black-600 text-gray-700 text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-gray focus:text-white"
+                            className="w-full border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
                             placeholder="E-mail"
 
                         />
@@ -61,19 +66,19 @@ export const LoginPage: React.FC = () => {
                             // eslint-disable-next-line react/jsx-props-no-spreading
                             {...register("password")}
                             type="password"
-                            className="w-full border-none bg-black-600 text-gray-700 text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-gray focus:text-white"
+                            className="w-full border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
                             placeholder="Hasło"
                         />
                         <p className="err-message">{errors.password ?.message}</p>
                     </div>
-                    <p className="flex justify-end text-white font-thin text-sm tracking-widest mt-6 mb-10 cursor-pointer"><Link to='/remind'>Zapomniałeś hasła?</Link></p>
+                    <p className="flex justify-end text-primary-font-color font-thin text-sm tracking-widest mt-6 mb-10 cursor-pointer"><Link to='/remind'>Zapomniałeś hasła?</Link></p>
                     <div className="flex items-center justify-between w-full mt-1 mx-auto gap-12">
-                        <p className="text-white font-thin text-sm tracking-widest" > Nie masz konta?
-                            <Link to='/register'><span className="text-white underline font-medium cursor-pointer"> Zarejestruj się</span></Link>
+                        <p className="text--primary-font-color font-thin text-sm tracking-widest" > Nie masz konta?
+                            <Link to='/register'><span className="text-primary-font-color underline font-medium cursor-pointer"> Zarejestruj się</span></Link>
                         </p>
                         <button
                             type="submit"
-                            className={`${btnTransition} text-white font-thin text-md py-2 px-4 tracking-wider bg-red`}
+                            className={`${btnTransition} text-primary-font-color font-thin text-md py-2 px-4 tracking-wider bg-login-btn-color`}
                             >
                             Zaloguj się
                         </button>
