@@ -9,11 +9,12 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "prettier": "prettier --write .",
-    "eslint": "eslint --fix ."
+    "eslint": "eslint --fix . && prettier --write ."
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
