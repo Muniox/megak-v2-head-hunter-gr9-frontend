@@ -23,12 +23,17 @@ export const LoginPage: React.FC = () => {
 
     })
 
-    const {register, handleSubmit, formState: {errors}} = useForm<LoginCredentials>({
+    const {register, handleSubmit, reset, formState: {errors}} = useForm<LoginCredentials>({
         resolver: yupResolver(schema),
     });
 
     const onSubmit = ((formValues : LoginCredentials) => {
-        console.log('form data is', formValues)
+        console.log('form data is', formValues);
+        reset({
+            email: "",
+            password: ""
+        });
+
     });
 
     // console.log(errors);
