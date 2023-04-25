@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@frontendTypes": ["./src/types"],
+      "@backendTypes": ["../backend/src/types"]
+    }
+  }
+}

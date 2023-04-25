@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -17,7 +18,7 @@
     "jsx": "react-jsx",
     "preserveConstEnums": true,
     "noImplicitAny": true,
-    "sourceMap": true,
+    "sourceMap": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

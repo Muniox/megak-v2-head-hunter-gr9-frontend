@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Yarn Integrity file
+.yarn/*
+
+# NPM Integrity file
+package-lock.json
