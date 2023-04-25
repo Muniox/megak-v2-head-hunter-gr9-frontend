@@ -1,15 +1,9 @@
-// eslint-disable-next-line import/no-unresolved
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
 import { useForm } from 'react-hook-form';
-// eslint-disable-next-line import/no-unresolved
 import * as yup from 'yup';
-// eslint-disable-next-line import/no-unresolved
 import { yupResolver } from '@hookform/resolvers/yup';
-// eslint-disable-next-line import/no-extraneous-dependencies,import/no-unresolved
 import { Link } from "react-router-dom";
-// eslint-disable-next-line import/no-unresolved
-import Logo from "../assets/img/Logo.png"
+import Logo from "../assets/img/logo.png"
 
 interface LoginCredentials {
     email: string,
@@ -73,7 +67,7 @@ export const LoginPage: React.FC = () => {
                     </div>
                     <p className="flex justify-end text-primary-font-color font-thin text-sm tracking-widest mt-6 mb-10 cursor-pointer"><Link to='/remind'>Zapomniałeś hasła?</Link></p>
                     <div className="flex items-center justify-between w-full mt-1 mx-auto gap-12">
-                        <p className="text--primary-font-color font-thin text-sm tracking-widest" > Nie masz konta?
+                        <p className="text-primary-font-color font-thin text-sm tracking-widest" > Nie masz konta?
                             <Link to='/register'><span className="text-primary-font-color underline font-medium cursor-pointer"> Zarejestruj się</span></Link>
                         </p>
                         <button
