@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
-import { Logo } from './assets';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Home } from './components/views/Home/Home';
 
 export const App: FC = () => (
-  <h1>
-    Hello Group 9 ❤️
-    <img src={Logo} alt="BackArrow" />
-  </h1>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
+  </BrowserRouter>
 );
