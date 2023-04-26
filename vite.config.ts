@@ -24,7 +24,7 @@ export default (config) => {
     },
     plugins: [
       react(),
-      eslint({ useEslintrc: true }),
+      eslint()
     ],
     resolve: {
       alias: {
