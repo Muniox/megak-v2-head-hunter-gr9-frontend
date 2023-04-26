@@ -1,19 +1,16 @@
-import React, { FC } from 'react';
+import React, {FC} from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import { Logo } from './assets';
 
 import {LoginPage} from "./views/LoginPage";
+import {SampleDashboard} from "./views/SampleDashboard";
 
 export const App: FC = () => (
-    <div>
-        <h1>
-            Hello Group 9 ❤️
-            <img src={Logo} alt="BackArrow" />
-        </h1>
-        <BrowserRouter>
-            <Routes>
-                < Route path="/login" element={< LoginPage />} />
-            </Routes>
-        </BrowserRouter>
-    </div>
+  <div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={< LoginPage />}/>
+        <Route path="/dashboard" element={< SampleDashboard />}/>
+      </Routes>
+    </BrowserRouter>
+  </div>
 );
