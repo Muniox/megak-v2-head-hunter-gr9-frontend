@@ -12,6 +12,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const login = async (inputs: RegisterRequest) => {
     const data = await fetch('http://localhost:3001/api/auth/login', {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
