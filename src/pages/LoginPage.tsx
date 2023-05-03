@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { LoginRequest } from '@backendTypes';
+import { AuthContextProps } from '@frontendTypes';
 import { Logo } from '../assets';
-
-interface LoginCredentials {
-  email: string;
-  password: string;
-}
+import { AuthContext } from '../context/authContext';
 
 export const LoginPage: React.FC = () => {
+  const navigate = useNavigate();
+
+  const { login } = useContext(AuthContext) as AuthContextProps;
+
   const schema = yup.object().shape({
     email: yup.string().email('Email musi mieć odpowiedni format').required('Email jest wymagany'),
     password: yup
@@ -33,13 +35,18 @@ export const LoginPage: React.FC = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginCredentials>({
+  } = useForm<LoginRequest>({
     resolver: yupResolver(schema),
     defaultValues,
   });
 
-  const onSubmit = (formValues: LoginCredentials) => {
-    console.log('form data is', formValues);
+  const onSubmit = async (formValues: LoginRequest) => {
+    try {
+      await login(formValues);
+      navigate('/dashboard');
+    } catch (e) {
+      alert(e);
+    }
   };
 
   return (
