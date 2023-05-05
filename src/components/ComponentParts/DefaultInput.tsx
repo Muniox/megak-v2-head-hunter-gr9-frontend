@@ -6,9 +6,10 @@ interface DefaultInputProps {
   control: Control<LoginCredentials>;
   errors: FieldErrors<LoginCredentials>;
   name: 'email' | 'password' | 'repeatPassword';
+  onClick?: () => void;
 }
 
-export const DefaultInput: React.FC<DefaultInputProps> = ({ control, errors, name }) => {
+export const DefaultInput: React.FC<DefaultInputProps> = ({ control, errors, name, onClick }) => {
   const handlePlaceholder = () => {
     switch (name) {
       case 'password':
@@ -35,6 +36,7 @@ export const DefaultInput: React.FC<DefaultInputProps> = ({ control, errors, nam
             value={field.value}
             name={field.name}
             placeholder={handlePlaceholder()}
+            onClick={onClick}
             className="w-full border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
           />
         )}

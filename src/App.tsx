@@ -10,6 +10,7 @@ export const App: FC = () => (
     <Home />
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<LoginPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/dashboard" element={<SampleDashboard />} />
         <Route path="/register" element={<RegistrationLandingPage />} />

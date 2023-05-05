@@ -2,29 +2,42 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { registrationSchema } from '../components/yupSchemas/RegistrationSchema';
 import { DefaultInput } from '../components/ComponentParts/DefaultInput';
 import { LoginCredentials } from './LoginPage';
 import { DefaultSubmitButton } from '../components/ComponentParts/DefaultSubmitButton';
+import { api } from '../api';
+import { login } from '../components/Routes';
 
 export const RegistrationLandingPage = () => {
-  const [email, setEmail] = useState<string>('defaultEmail@email.email');
+  const navigate = useNavigate();
   const defaultValues = {
-    email: '',
+    email: 'defaultEmail@email.email',
     password: '',
     repeatPassword: '',
   };
 
+  const [email] = useState<string>(defaultValues.email);
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginCredentials>({ resolver: yupResolver(registrationSchema), defaultValues });
 
-  const onSubmit = (data: LoginCredentials) => {
-    if (data) {
-      setEmail('email');
-    }
+  const onSubmit = async (data: LoginCredentials) => {
+    console.log(data);
+    await fetch(`${api}/api/auth/register`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: data.email,
+        password: data.password,
+      }),
+    });
+    navigate(login);
   };
 
   return (
