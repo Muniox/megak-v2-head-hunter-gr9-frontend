@@ -1,31 +1,45 @@
 import React from 'react';
-import { Controller, FieldError, FieldErrors, FieldValues } from 'react-hook-form';
+import { Controller, Control, FieldErrors } from 'react-hook-form';
+import { LoginCredentials } from '../../pages/LoginPage';
 
-type Props = {
-  control: any; // powinno być Controller<FieldValues>, ale z jakiegoś powodu nie działa, link tutaj https://github.com/react-hook-form/react-hook-form/issues/4965
-  name: string;
-  placeholder: string;
-  errors: FieldErrors<FieldValues>;
-  type: string;
+interface DefaultInputProps {
+  control: Control<LoginCredentials>;
+  errors: FieldErrors<LoginCredentials>;
+  name: 'email' | 'password' | 'repeatPassword';
+}
+
+export const DefaultInput: React.FC<DefaultInputProps> = ({ control, errors, name }) => {
+  const handlePlaceholder = () => {
+    switch (name) {
+      case 'password':
+        return 'Hasło';
+      case 'email':
+        return 'Adres Email';
+      case 'repeatPassword':
+        return 'Powtórz hasło';
+      default:
+        return 'Nieprawidłowy input';
+    }
+  };
+
+  return (
+    <div className="my-4 mx-0">
+      <Controller
+        control={control}
+        name={name}
+        render={({ field }) => (
+          <input
+            type="text"
+            onChange={field.onChange}
+            onBlur={field.onBlur}
+            value={field.value}
+            name={field.name}
+            placeholder={handlePlaceholder()}
+            className="w-full border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
+          />
+        )}
+      />
+      {errors[name]?.message && <span className="text-red-500">{errors[name]?.message}</span>}
+    </div>
+  );
 };
-
-export const DefaultInput: React.FC<Props> = ({ control, name, placeholder, errors, type }) => (
-  <div className="mb-4">
-    <Controller
-      control={control}
-      name={name}
-      render={({ field }) => (
-        <input
-          type={type}
-          onChange={field.onChange}
-          onBlur={field.onBlur}
-          value={field.value}
-          name={field.name}
-          placeholder={placeholder}
-          className="w-full border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
-        />
-      )}
-    />
-    {errors.name && <span className="text-red-500">{(errors.name as FieldError).message}</span>}
-  </div>
-);

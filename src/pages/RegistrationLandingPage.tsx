@@ -2,15 +2,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import { registrationSchema } from './yupSchemas/RegistrationSchema';
-import { RedButton } from './ComponentParts/RedButton';
-import { DefaultInput } from './ComponentParts/DefaultInput';
-
-interface FormValues {
-  email: string;
-  password: string;
-  repeatPassword: string;
-}
+import { registrationSchema } from '../components/yupSchemas/RegistrationSchema';
+import { DefaultInput } from '../components/ComponentParts/DefaultInput';
+import { LoginCredentials } from './LoginPage';
+import { DefaultSubmitButton } from '../components/ComponentParts/DefaultSubmitButton';
 
 export const RegistrationLandingPage = () => {
   const [email, setEmail] = useState<string>('defaultEmail@email.email');
@@ -24,9 +19,9 @@ export const RegistrationLandingPage = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>({ resolver: yupResolver(registrationSchema), defaultValues });
+  } = useForm<LoginCredentials>({ resolver: yupResolver(registrationSchema), defaultValues });
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = (data: LoginCredentials) => {
     if (data) {
       setEmail('email');
     }
@@ -40,15 +35,9 @@ export const RegistrationLandingPage = () => {
             Email: <span className="text-gray-500 ml-10"> {email} </span>
           </span>
         </div>
-        <DefaultInput type="password" control={control} errors={errors} name="password" placeholder="Hasło" />
-        <DefaultInput
-          type="password"
-          control={control}
-          errors={errors}
-          name="repeatPassword"
-          placeholder="Powtórz hasło"
-        />
-        <RedButton buttonType="submit" buttonMessage="Zarejestruj się" link="/dashboard" />
+        <DefaultInput control={control} errors={errors} name="password" />
+        <DefaultInput control={control} errors={errors} name="repeatPassword" />
+        <DefaultSubmitButton buttonType="submit" buttonMessage="Zarejestruj się" />
       </form>
     </div>
   );
