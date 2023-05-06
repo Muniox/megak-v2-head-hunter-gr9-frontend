@@ -38,11 +38,11 @@ const router = createBrowserRouter([
         element: <SampleDashboard />,
       },
       {
-        path: '/admin/addhr',
+        path: '/api/hr',
         element: <AddHr />,
       },
       {
-        path: '/admin/addstudent',
+        path: '/api/students/import',
         element: <AddStudent />,
       },
     ],
