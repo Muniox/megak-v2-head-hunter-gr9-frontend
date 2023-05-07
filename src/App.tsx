@@ -5,6 +5,7 @@ import { LoginPage } from './pages/LoginPage';
 import { SampleDashboard } from './pages/SampleDashboard';
 import { RegistrationLandingPage } from './components/RegistrationLandingPage';
 import { Navbar } from './components/Navbar';
+import { StudentFormPage } from './pages/StudentFormPage';
 
 const Layout = () => (
   <div>
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <SampleDashboard />,
+      },
+      {
+        path: '/student-form',
+        element: <StudentFormPage />,
       },
     ],
   },
