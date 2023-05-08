@@ -1,21 +1,38 @@
 import React, { FC } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+
 import { LoginPage } from './pages/LoginPage';
 import { SampleDashboard } from './pages/SampleDashboard';
-import { Home } from './components/views/Home/Home';
-import { RegistrationLandingPage } from './pages/RegistrationLandingPage';
-import { routes } from './routes/Routes';
+import { RegistrationLandingPage } from './components/RegistrationLandingPage';
+import { Navbar } from './components/Navbar';
 
-export const App: FC = () => (
+const Layout = () => (
   <div>
-    <Home />
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path={routes.login} element={<LoginPage />} />
-        <Route path={routes.dashboard} element={<SampleDashboard />} />
-        <Route path={routes.register} element={<RegistrationLandingPage />} />
-      </Routes>
-    </BrowserRouter>
+    <Navbar />
+    <Outlet />
   </div>
 );
+
+const router = createBrowserRouter([
+  {
+    path: '/login',
+    element: <LoginPage />,
+  },
+  {
+    path: '/register',
+    element: <RegistrationLandingPage />,
+  },
+  {
+    path: '/dashboard',
+    element: <Layout />,
+    children: [
+      {
+        path: '/dashboard',
+        element: <SampleDashboard />,
+      },
+    ],
+  },
+]);
+
+export const App: FC = () => <RouterProvider router={router} />;

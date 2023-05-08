@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -44,6 +45,7 @@ export const LoginPage: React.FC = () => {
         <form className="w-3/5 min-w-fit sm:min-w-0 my-4 max-w-lg" onSubmit={handleSubmit(onSubmit)}>
           <DefaultInput control={control} errors={errors} name="email" />
           <DefaultInput control={control} errors={errors} name="password" />
+
           <p className="flex justify-end text-primary-font-color font-thin text-sm tracking-widest mt-6 mb-10 cursor-pointer">
             <Link to="/remind">Zapomniałeś hasła?</Link>
           </p>
