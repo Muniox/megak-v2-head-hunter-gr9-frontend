@@ -1,8 +1,7 @@
 import {
-  canTakeApprenticeshipOption,
-  expectedContractTypeOptions,
-  expectedTypeWorkOptions,
-} from '../types/StudentFormTypes';
+  ExpectedContractType,
+  ExpectedTypeWork
+} from '@backendTypes';
 
 export const defaultValues = {
   email: '',
@@ -10,14 +9,14 @@ export const defaultValues = {
   firstName: '',
   lastName: '',
   githubUsername: '',
-  portfolioUrls: '',
-  projectUrls: '',
+  portfolioUrls: [],
+  projectUrls: [],
   bio: '',
-  expectedTypeWork: expectedTypeWorkOptions.indifferent,
+  expectedTypeWork: ExpectedTypeWork.NO_PREFERENCE,
   targetWorkCity: '',
-  expectedContractType: expectedContractTypeOptions.noPreference,
-  expectedSalary: 0,
-  canTakeApprenticeship: canTakeApprenticeshipOption.no,
+  expectedContractType: ExpectedContractType.NO_PREFERENCE,
+  expectedSalary: '',
+  canTakeApprenticeship: false,
   monthsOfCommercialExp: 0,
   education: '',
   workExperience: '',

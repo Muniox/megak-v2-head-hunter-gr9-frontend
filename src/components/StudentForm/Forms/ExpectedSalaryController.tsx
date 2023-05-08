@@ -12,7 +12,7 @@ export const ExpectedSalaryController: FC<Props> = ({ control, errors, className
       name="expectedSalary"
       render={({ field }) => (
         <input
-          type="number"
+          type="text"
           onChange={field.onChange}
           onBlur={field.onBlur}
           value={field.value}
