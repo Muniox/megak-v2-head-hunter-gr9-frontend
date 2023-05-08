@@ -39,11 +39,11 @@ const router = createBrowserRouter([
         element: <SampleDashboard />,
       },
       {
-        path: '/api/hr',
+        path: '/admin/addhr',
         element: <AddHr />,
       },
       {
-        path: '/api/students/import',
+        path: '/admin/addstudent',
         element: <AddStudent />,
       },
       {

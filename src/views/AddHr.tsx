@@ -2,6 +2,7 @@ import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { apiUrl } from '../config/api';
 
 interface FormValues {
   email: string;
@@ -36,7 +37,7 @@ export const AddHr: React.FC = () => {
   } = useForm<FormValues>({ resolver: yupResolver(schema), defaultValues });
 
   const onSubmit = async ({ email, fullName, company, maxReservedStudents }: FormValues) => {
-    const res = await fetch(`http://localhost:3001/api/hr`, {
+    const res = await fetch(`${apiUrl}/api/hr`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

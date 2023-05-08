@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { ClientApiResponse, ImportResultResponse } from '@backendTypes';
+import { apiUrl } from '../config/api';
 
 export interface ImportDetails {
   count: number;
@@ -9,10 +11,7 @@ export interface ImportErrors {
   databaseDuplicates: ImportDetails;
   invalidEmails: ImportDetails;
 }
-export interface ImportResultResponse {
-  added: ImportDetails;
-  errors: ImportErrors;
-}
+
 export const AddStudent: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [resData, setResData] = useState<ImportResultResponse | null>(null);
@@ -29,16 +28,17 @@ export const AddStudent: React.FC = () => {
     formData.append('csv', selectedFile);
 
     try {
-      const response = await fetch(`http://localhost:3001/api/students/import`, {
+      const response = await fetch(`${apiUrl}/api/students/import`, {
         method: 'POST',
         body: formData,
       });
-      const data = await response.json();
+      const data: ClientApiResponse<ImportResultResponse> = await response.json();
 
       if (response.ok) {
         console.log('File uploaded successfully!');
-        setResData(data);
-        console.log(resData);
+        if (data.data) setResData(data.data);
+
+        console.log(data.data);
       } else {
         console.error('Upload failed.');
       }
@@ -67,30 +67,34 @@ export const AddStudent: React.FC = () => {
             type="submit"
             className="font-sans bg-login-btn-color items-center justify-center w-1/4 h-9 text-primary-font-color ml-3 rounded "
           >
-            Upload
+            Wyślij
           </button>
         </form>
       </div>
       {resData && (
-        <div>
-          <h3>Zostało dodanych Liczba: {resData.added.count} studentów.</h3>
-          <ul>
-            {resData.added.details.map((email, index) => (
-              <li key={index}>{email}</li>
-            ))}
-          </ul>
-          <h3>Błędy:</h3>
-          {resData.errors.csvDuplicates.count > 0 && (
-            <div>
-              <p>Duplikaty emaili w pliku CSV:</p>
-              <p>Liczba: {resData.errors.csvDuplicates.count}</p>
-              <ul>
-                {resData.errors.csvDuplicates.details.map((email, index) => (
-                  <li key={index}>{email}</li>
-                ))}
-              </ul>
-            </div>
-          )}
+        <div className="flex flex-col items-center bg-student-information-field-color text-student-ratings-font-color mt-6 p-4 w-2/4 h-1/2">
+          <div className="flex flex-col items-start w-full">
+            <h2 className="py-2 text-l">Zostało dodanych {resData.added.count} studentów:</h2>
+            <ul className="text-xs pl-3">
+              {resData.added.details.map((email) => (
+                <li>{email}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex flex-col justify-start w-full pb-1">
+            <h2 className="py-2 text-l">Błędy:</h2>
+            {resData.errors.csvDuplicates.count > 0 && (
+              <div>
+                <p className="text-sm pl-2">Duplikaty emaili w pliku CSV:</p>
+                <p className="text-sm pl-2">Liczba: {resData.errors.csvDuplicates.count}</p>
+                <ul className="text-xs pl-3">
+                  {resData.errors.csvDuplicates.details.map((email) => (
+                    <li>{email}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>
