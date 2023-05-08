@@ -49,5 +49,6 @@ module.exports = {
         ignore: ['^types$'],
       },
     ],
+    'react/jsx-props-no-spreading': 'off',
   },
 };

@@ -15,6 +15,7 @@ module.exports = {
         'primary-placeholder-font-color': '#7E7E7E',
         'divider-line-color': '#202122',
         'available-students-details-font-color': '#CFCFCF',
+        'available-students-details-divider-line-color': '#262728',
         'dropdown-svg-and-search-placeholder-color': '#666666',
         'right-arrow-svg-color': '#333333',
         'filter-svg-color': '#4D4D4D',
@@ -29,6 +30,10 @@ module.exports = {
         sans: ['Graphik', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
         cataman: ['Catamaran', 'Regular'],
+      },
+      fontSize: {
+        '2xs' : '0.65rem',
+        '3xs': '0.50rem'
       }
     },
   },
