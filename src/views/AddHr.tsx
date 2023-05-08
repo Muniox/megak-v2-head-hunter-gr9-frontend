@@ -27,6 +27,7 @@ export const AddHr: React.FC = () => {
     fullName: '',
     company: '',
     maxReservedStudents: 1,
+
   };
 
   const {
@@ -91,6 +92,7 @@ export const AddHr: React.FC = () => {
                 />
               )}
             />
+
             {errors.fullName?.message && <span className="text-red-500">{errors.fullName.message}</span>}
           </div>
           <div className="mb-4">

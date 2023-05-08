@@ -40,6 +40,13 @@ const router = createBrowserRouter([
         element: <SampleDashboard />,
       },
       {
+        path: '/admin/addhr',
+        element: <AddHr />,
+      },
+      {
+        path: '/admin/addstudent',
+        element: <AddStudent />,
+      },
         path: '/api/hr',
         element: <AddHr />,
       },
@@ -51,7 +58,6 @@ const router = createBrowserRouter([
         path: '/api/filter',
         element: <StudentFilter />,
       },
-
     ],
   },
 ]);

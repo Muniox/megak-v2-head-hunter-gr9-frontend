@@ -35,14 +35,18 @@ export const LoginPage: React.FC = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginCredentials>({
-    resolver: yupResolver(loggingSchema),
+  } = useForm<LoginRequest>({
+    resolver: yupResolver(schema),
     defaultValues,
   });
 
-  const onSubmit = (formValues: LoginCredentials) => {
-    console.log('form data is', formValues);
-    navigate(routes.dashboard);
+  const onSubmit = async (formValues: LoginRequest) => {
+    try {
+      await login(formValues);
+      navigate('/dashboard');
+    } catch (e) {
+      alert(e);
+    }
   };
 
   return (
@@ -50,6 +54,7 @@ export const LoginPage: React.FC = () => {
       <div className="flex flex-col items-center justify-center w-3/4 h-screen">
         <img className="mx-auto w-28 " src={Logo} alt="logo" />
         <form className="w-3/5 min-w-fit sm:min-w-0 my-4 max-w-lg" onSubmit={handleSubmit(onSubmit)}>
+
           <DefaultInput control={control} errors={errors} name="email" />
           <DefaultInput control={control} errors={errors} name="password" />
           <p className="flex justify-end text-primary-font-color font-thin text-sm tracking-widest mt-6 mb-10 cursor-pointer">
@@ -63,7 +68,14 @@ export const LoginPage: React.FC = () => {
                 <span className="text-primary-font-color underline font-medium cursor-pointer"> Zarejestruj się</span>
               </Link>
             </p>
+            <button
+              type="submit"
+              className="transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200 text-primary-font-color font-thin text-md py-2 px-4 tracking-wider bg-login-btn-color"
+            >
+              Zaloguj się
+            </button>
             <DefaultSubmitButton buttonMessage="Zarejestruj się" buttonType="submit" />
+
           </div>
         </form>
       </div>
