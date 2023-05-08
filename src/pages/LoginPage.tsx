@@ -7,7 +7,7 @@ import { Logo } from '../assets';
 import { DefaultInput } from '../components/ComponentParts/DefaultInput';
 import { DefaultSubmitButton } from '../components/ComponentParts/DefaultSubmitButton';
 import { loggingSchema } from '../components/yupSchemas/LoggingSchema';
-import { dashboard } from '../components/Routes';
+import { routes } from '../routes/Routes';
 
 export interface LoginCredentials {
   email: string;
@@ -34,7 +34,7 @@ export const LoginPage: React.FC = () => {
 
   const onSubmit = (formValues: LoginCredentials) => {
     console.log('form data is', formValues);
-    navigate(dashboard);
+    navigate(routes.dashboard);
   };
 
   return (

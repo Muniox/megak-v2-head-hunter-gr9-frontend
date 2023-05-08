@@ -8,7 +8,7 @@ import { DefaultInput } from '../components/ComponentParts/DefaultInput';
 import { LoginCredentials } from './LoginPage';
 import { DefaultSubmitButton } from '../components/ComponentParts/DefaultSubmitButton';
 import { api } from '../api';
-import { login } from '../components/Routes';
+import { routes } from '../routes/Routes';
 
 export const RegistrationLandingPage = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ export const RegistrationLandingPage = () => {
         password: data.password,
       }),
     });
-    navigate(login);
+    navigate(routes.login);
   };
 
   return (

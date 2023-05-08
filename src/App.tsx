@@ -4,6 +4,7 @@ import { LoginPage } from './pages/LoginPage';
 import { SampleDashboard } from './pages/SampleDashboard';
 import { Home } from './components/views/Home/Home';
 import { RegistrationLandingPage } from './pages/RegistrationLandingPage';
+import { routes } from './routes/Routes';
 
 export const App: FC = () => (
   <div>
@@ -11,9 +12,9 @@ export const App: FC = () => (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/dashboard" element={<SampleDashboard />} />
-        <Route path="/register" element={<RegistrationLandingPage />} />
+        <Route path={routes.login} element={<LoginPage />} />
+        <Route path={routes.dashboard} element={<SampleDashboard />} />
+        <Route path={routes.register} element={<RegistrationLandingPage />} />
       </Routes>
     </BrowserRouter>
   </div>
