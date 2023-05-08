@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 
 import { LoginPage } from './views/LoginPage';
@@ -9,6 +10,7 @@ import { AddHr } from './views/AddHr';
 import { AddStudent } from './views/AddStudent';
 import { Header } from './components/Header';
 import { Navbar } from './components/Navbar';
+import { StudentFilter } from './components/StudentFilter';
 
 const Layout = () => (
   <div>
@@ -45,6 +47,11 @@ const router = createBrowserRouter([
         path: '/api/students/import',
         element: <AddStudent />,
       },
+      {
+        path: '/api/filter',
+        element: <StudentFilter />,
+      },
+
     ],
   },
 ]);

@@ -1,3 +1,4 @@
+
 import React, { useContext } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -24,7 +25,6 @@ export const LoginPage: React.FC = () => {
         'Hasło musi zawierać co najmniej jedną małą literę, jedną dużą literę oraz jedną cyfrę',
       ),
   });
-
   const defaultValues = {
     email: '',
     password: '',
@@ -35,18 +35,14 @@ export const LoginPage: React.FC = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginRequest>({
-    resolver: yupResolver(schema),
+  } = useForm<LoginCredentials>({
+    resolver: yupResolver(loggingSchema),
     defaultValues,
   });
 
-  const onSubmit = async (formValues: LoginRequest) => {
-    try {
-      await login(formValues);
-      navigate('/dashboard');
-    } catch (e) {
-      alert(e);
-    }
+  const onSubmit = (formValues: LoginCredentials) => {
+    console.log('form data is', formValues);
+    navigate(routes.dashboard);
   };
 
   return (
@@ -54,42 +50,8 @@ export const LoginPage: React.FC = () => {
       <div className="flex flex-col items-center justify-center w-3/4 h-screen">
         <img className="mx-auto w-28 " src={Logo} alt="logo" />
         <form className="w-3/5 min-w-fit sm:min-w-0 my-4 max-w-lg" onSubmit={handleSubmit(onSubmit)}>
-          <div className="my-4 mx-0">
-            <Controller
-              control={control}
-              name="email"
-              render={({ field }) => (
-                <input
-                  type="text"
-                  onChange={field.onChange}
-                  onBlur={field.onBlur}
-                  value={field.value}
-                  name={field.name}
-                  placeholder="Email"
-                  className="w-full border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
-                />
-              )}
-            />
-            {errors.email?.message && <span className="text-red-500">{errors.email.message}</span>}
-          </div>
-          <div className="my-4 mx-0">
-            <Controller
-              control={control}
-              name="password"
-              render={({ field }) => (
-                <input
-                  type="password"
-                  onChange={field.onChange}
-                  onBlur={field.onBlur}
-                  value={field.value}
-                  name={field.name}
-                  placeholder="password"
-                  className="w-full border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
-                />
-              )}
-            />
-            {errors.password?.message && <span className="text-red-500">{errors.password.message}</span>}
-          </div>
+          <DefaultInput control={control} errors={errors} name="email" />
+          <DefaultInput control={control} errors={errors} name="password" />
           <p className="flex justify-end text-primary-font-color font-thin text-sm tracking-widest mt-6 mb-10 cursor-pointer">
             <Link to="/remind">Zapomniałeś hasła?</Link>
           </p>
@@ -101,12 +63,7 @@ export const LoginPage: React.FC = () => {
                 <span className="text-primary-font-color underline font-medium cursor-pointer"> Zarejestruj się</span>
               </Link>
             </p>
-            <button
-              type="submit"
-              className="transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200 text-primary-font-color font-thin text-md py-2 px-4 tracking-wider bg-login-btn-color"
-            >
-              Zaloguj się
-            </button>
+            <DefaultSubmitButton buttonMessage="Zarejestruj się" buttonType="submit" />
           </div>
         </form>
       </div>
