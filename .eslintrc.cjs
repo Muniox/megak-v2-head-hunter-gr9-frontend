@@ -30,6 +30,7 @@ module.exports = {
   },
   rules: {
     'linebreak-style': ['error', 'unix'],
+    'react/require-default-props': 'off',
     'react/function-component-definition': [
       2,
       {
