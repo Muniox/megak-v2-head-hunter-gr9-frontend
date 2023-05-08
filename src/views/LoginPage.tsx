@@ -1,23 +1,30 @@
 
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useContext } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { LoginRequest } from '@backendTypes';
+import { AuthContextProps } from '@frontendTypes';
 import { Logo } from '../assets';
-import { DefaultInput } from '../components/ComponentParts/DefaultInput';
-import { DefaultSubmitButton } from '../components/ComponentParts/DefaultSubmitButton';
-import { loggingSchema } from '../components/yupSchemas/LoggingSchema';
-import { routes } from '../routes/Routes';
-
-export interface LoginCredentials {
-  email: string;
-  password: string;
-  repeatPassword?: string;
-}
+import { AuthContext } from '../context/authContext';
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
+
+  const { login } = useContext(AuthContext) as AuthContextProps;
+
+  const schema = yup.object().shape({
+    email: yup.string().email('Email musi mieć odpowiedni format').required('Email jest wymagany'),
+    password: yup
+      .string()
+      .required('Hasło jest wymagane')
+      .min(8, 'Hasło musi zawierać minimum 8 znaków')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+        'Hasło musi zawierać co najmniej jedną małą literę, jedną dużą literę oraz jedną cyfrę',
+      ),
+  });
   const defaultValues = {
     email: '',
     password: '',
@@ -45,7 +52,6 @@ export const LoginPage: React.FC = () => {
         <form className="w-3/5 min-w-fit sm:min-w-0 my-4 max-w-lg" onSubmit={handleSubmit(onSubmit)}>
           <DefaultInput control={control} errors={errors} name="email" />
           <DefaultInput control={control} errors={errors} name="password" />
-
           <p className="flex justify-end text-primary-font-color font-thin text-sm tracking-widest mt-6 mb-10 cursor-pointer">
             <Link to="/remind">Zapomniałeś hasła?</Link>
           </p>

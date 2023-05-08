@@ -51,6 +51,7 @@ const router = createBrowserRouter([
         path: '/api/filter',
         element: <StudentFilter />,
       },
+
     ],
   },
 ]);
