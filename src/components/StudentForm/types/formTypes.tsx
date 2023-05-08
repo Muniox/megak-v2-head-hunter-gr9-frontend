@@ -1,9 +1,9 @@
 import { Control, DeepRequired, FieldErrorsImpl, GlobalError } from 'react-hook-form';
-import { StudentFormValues } from './StudentFormTypes';
+import { StudentProfileRequest } from '@backendTypes';
 
 export interface Props {
-  control: Control<StudentFormValues, unknown>;
-  errors: Partial<FieldErrorsImpl<DeepRequired<StudentFormValues>>> & {
+  control: Control<StudentProfileRequest, unknown>;
+  errors: Partial<FieldErrorsImpl<DeepRequired<StudentProfileRequest>>> & {
     root?: Record<string, GlobalError> & GlobalError;
   };
   className?: string;

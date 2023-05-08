@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { StudentFormValues } from './types/StudentFormTypes';
+import { StudentProfileRequest} from '@backendTypes';
 import { email, EmailController } from './Forms/EmailController';
 import { PhoneController, tel } from './Forms/PhoneController';
 import { defaultValues } from './utils/defaultValues';
@@ -33,12 +33,12 @@ export const StudentForm = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<StudentFormValues>({
+  } = useForm<StudentProfileRequest>({
     resolver: yupResolver(schema),
     defaultValues,
   });
 
-  const onSubmit = (formValues: StudentFormValues) => {
+  const onSubmit = (formValues: StudentProfileRequest) => {
     console.log('form data is', formValues);
   };
 
