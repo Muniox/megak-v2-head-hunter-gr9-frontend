@@ -5,21 +5,29 @@ import * as yup from 'yup';
 
 interface FormValues {
   email: string;
-  name: string;
+  fullName: string;
   company: string;
+  maxReservedStudents: number;
 }
 
 const schema = yup.object().shape({
   email: yup.string().email('Email musi mieć odpowiedni format').required('Email jest wymagany'),
-  name: yup.string().required('Imię jest wymagane').min(8).max(150),
+  fullName: yup.string().required('Imię jest wymagane').min(3).max(150),
   company: yup.string().required('Nazwa firmy jest wymagana').min(8).max(150),
+  maxReservedStudents: yup
+    .number()
+    .required('Wymagane jest podanie minimalnej ilości studentów do rekrótacji')
+    .min(1)
+    .max(30),
 });
 
 export const AddHr: React.FC = () => {
   const defaultValues = {
     email: '',
-    name: '',
+    fullName: '',
     company: '',
+    maxReservedStudents: 1,
+
   };
 
   const {
@@ -28,8 +36,20 @@ export const AddHr: React.FC = () => {
     formState: { errors },
   } = useForm<FormValues>({ resolver: yupResolver(schema), defaultValues });
 
-  const onSubmit = (data: FormValues) => {
-    console.log(data);
+  const onSubmit = async ({ email, fullName, company, maxReservedStudents }: FormValues) => {
+    const res = await fetch(`http://localhost:3001/api/hr`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        fullName,
+        company,
+        maxReservedStudents,
+      }),
+    });
+    await res.json();
   };
 
   return (
@@ -59,7 +79,7 @@ export const AddHr: React.FC = () => {
             <span className="text-primary-font-color">Podaj imię i nazwisko: </span>
             <Controller
               control={control}
-              name="name"
+              name="fullName"
               render={({ field }) => (
                 <input
                   type="text"
@@ -72,7 +92,8 @@ export const AddHr: React.FC = () => {
                 />
               )}
             />
-            {errors.name?.message && <span className="text-red-500">{errors.name.message}</span>}
+
+            {errors.fullName?.message && <span className="text-red-500">{errors.fullName.message}</span>}
           </div>
           <div className="mb-4">
             <span className="text-primary-font-color">Podaj nazwę firmy: </span>
@@ -92,6 +113,27 @@ export const AddHr: React.FC = () => {
               )}
             />
             {errors.company?.message && <span className="text-red-500">{errors.company.message}</span>}
+          </div>
+          <div className="mb-4">
+            <span className="text-primary-font-color">Podaj ilu studentów chce zatrudnić firma: </span>
+            <Controller
+              control={control}
+              name="maxReservedStudents"
+              render={({ field }) => (
+                <input
+                  type="text"
+                  onChange={field.onChange}
+                  onBlur={field.onBlur}
+                  value={field.value}
+                  name={field.name}
+                  className="w-full p-2 bg-secondary-color text-primary-placeholder-font-color border border-primary-border-color mt-2"
+                  placeholder="Podaj ilość studentów"
+                />
+              )}
+            />
+            {errors.maxReservedStudents?.message && (
+              <span className="text-red-500">{errors.maxReservedStudents.message}</span>
+            )}
           </div>
           <button
             className="font-sans bg-login-btn-color w-full p-2 bg-red-500 text-primary-font-color hover:bg-red-600 transition-colors duration-300 mt-4"
