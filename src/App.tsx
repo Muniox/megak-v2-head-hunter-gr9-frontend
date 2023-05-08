@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet, redirect } from 'react-router-dom';
 
 import { LoginPage } from './pages/LoginPage';
 import { SampleDashboard } from './pages/SampleDashboard';
@@ -24,15 +24,19 @@ const router = createBrowserRouter([
     element: <RegistrationLandingPage />,
   },
   {
-    path: '/dashboard',
+    path: '/',
     element: <Layout />,
     children: [
+      {
+        path: '/',
+        loader: () => redirect('/login'),
+      },
       {
         path: '/dashboard',
         element: <SampleDashboard />,
       },
       {
-        path: '/student-form',
+        path: '/form',
         element: <StudentFormPage />,
       },
     ],
