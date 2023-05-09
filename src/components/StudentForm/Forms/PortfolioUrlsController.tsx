@@ -14,11 +14,13 @@ export const PortfolioUrlsController: FC<Props> = ({ control, errors, className,
           name={`portfolioUrls.${index}.url`}
           render={({ field }) => (
             <input
-              type="url"
+              id="portfolioUrls"
+              type="text"
               onChange={field.onChange}
               onBlur={field.onBlur}
               value={field.value}
               name={field.name}
+              ref={field.ref}
               placeholder="link do portfolio"
               className="w-full border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
             />
