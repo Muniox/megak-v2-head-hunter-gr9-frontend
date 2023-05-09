@@ -2,17 +2,28 @@ module.exports = {
   root: true,
   env: {
     browser: true,
+    es2021: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:import/recommended',
-    'plugin:jsx-a11y/recommended',
     'plugin:@typescript-eslint/recommended',
-    'airbnb',
-    'airbnb/hooks',
-    'eslint-config-prettier',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
+    'plugin:jsx-a11y/recommended',
+    'airbnb-typescript',
+    'plugin:prettier/recommended',
   ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+    project: './tsconfig.json',
+  },
+  plugins: ['react', '@typescript-eslint', 'import', 'jsx-a11y', 'prettier'],
   settings: {
     react: {
       version: 'detect',
@@ -20,7 +31,7 @@ module.exports = {
     'import/resolver': {
       typescript: {
         alwaysTryTypes: true,
-        project: ['./tsconfig.json'],
+        project: './tsconfig.json',
       },
       node: {
         paths: ['src'],
@@ -42,13 +53,53 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
     'import/no-extraneous-dependencies': 'off',
-    'import/prefer-default-export': [0],
-    'import/extensions': [0],
+    'import/prefer-default-export': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
     'import/no-unresolved': [
       2,
       {
         ignore: ['^types$'],
       },
     ],
+    'prettier/prettier': ['error'],
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/explicit-function-return-type': [
+      'warn',
+      {
+        allowExpressions: true,
+        allowHigherOrderFunctions: true,
+        allowTypedFunctionExpressions: true,
+        allowConciseArrowFunctionExpressionsStartingWithVoid: true,
+      },
+    ],
+    '@typescript-eslint/explicit-module-boundary-types': 'warn',
+    'import/default': 'off',
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['to'],
+        aspects: ['noHref', 'invalidHref', 'preferButton'],
+      },
+    ],
   },
+  overrides: [
+    {
+      files: ['*.tsx'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+      },
+    },
+
+  ],
 };
