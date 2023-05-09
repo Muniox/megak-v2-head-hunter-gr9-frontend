@@ -1,0 +1,16 @@
+export { PhoneController } from './PhoneController';
+export { FirstNameController } from './FirstNameController';
+export { LastNameController } from './LastNameController';
+export { GithubUsernameController } from './GithubUsernameController';
+export { PortfolioUrlsController } from './PortfolioUrlsController';
+export { BioController } from './BioController';
+export { ExpectedTypeWorkController } from './ExpectedTypeWorkController';
+export { TargetWorkCityController } from './TargetWorkCityController';
+export { ExpectedSalaryController } from './ExpectedSalaryController';
+export { CanTakeApprenticeshipController } from './CanTakeApprenticeshipController';
+export { MonthsOfCommercialExpController } from './MonthsOfCommercialExpController';
+export { EducationController } from './EducationController';
+export { WorkExperienceController } from './WorkExperienceController';
+export { CoursesController } from './CoursesController';
+export { ExpectedContractTypeController } from './ExpectedContractTypeController';
+export { ProjectUrlsController } from './ProjectUrlsController';
