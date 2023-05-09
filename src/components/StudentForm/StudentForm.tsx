@@ -38,7 +38,20 @@ export const StudentForm = () => {
     defaultValues,
   });
 
-  const { fields, append, remove } = useFieldArray({
+  const {
+    fields: projectUrlsFields,
+    append: projectUrlsAppend,
+    remove: projectUrlsRemove,
+  } = useFieldArray({
+    control,
+    name: 'projectUrls',
+  });
+
+  const {
+    fields: portfolioUrlsFields,
+    append: portfolioUrlsAppend,
+    remove: portfolioUrlsRemove,
+  } = useFieldArray({
     control,
     name: 'portfolioUrls',
   });
@@ -46,7 +59,7 @@ export const StudentForm = () => {
   const onSubmit = (formValues: StudentProfile) => {
     console.log('form data is', formValues);
   };
-
+  /* eslint-disable jsx-a11y/label-has-associated-control */
   return (
     <form className="" onSubmit={handleSubmit(onSubmit)}>
       <fieldset className="border-white border border-1 p-3">
@@ -60,15 +73,26 @@ export const StudentForm = () => {
       <fieldset className="border-white border border-1 p-3">
         <legend className="px-3">Portfolio:</legend>
         <GithubUsernameController control={control} errors={errors} className="my-4" />
-        <ProjectUrlsController control={control} errors={errors} className="my-4" />
+        <p>Załącz projekty:</p>
+        <ul className="my-4">
+          <ProjectUrlsController
+            control={control}
+            errors={errors}
+            className="my-4 flex"
+            append={projectUrlsAppend}
+            fields={projectUrlsFields}
+            remove={projectUrlsRemove}
+          />
+        </ul>
+        <p>Załącz portfolio:</p>
         <ul className="my-4">
           <PortfolioUrlsController
             control={control}
             errors={errors}
-            className="my-4"
-            append={append}
-            fields={fields}
-            remove={remove}
+            className="my-4 flex"
+            append={portfolioUrlsAppend}
+            fields={portfolioUrlsFields}
+            remove={portfolioUrlsRemove}
           />
         </ul>
       </fieldset>
@@ -89,8 +113,6 @@ export const StudentForm = () => {
         <WorkExperienceController control={control} errors={errors} className="my-4" />
         <CoursesController control={control} errors={errors} className="my-4" />
       </fieldset>
-
-      <fieldset className="border-white border border-1 p-3" />
 
       <button
         type="submit"
