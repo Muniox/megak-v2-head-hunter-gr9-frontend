@@ -77,4 +77,4 @@ class ApiServer implements ApiServerType {
   }
 }
 
-export const apiClient = new ApiServer(API_URL);
+export const apiServer = new ApiServer(API_URL);
