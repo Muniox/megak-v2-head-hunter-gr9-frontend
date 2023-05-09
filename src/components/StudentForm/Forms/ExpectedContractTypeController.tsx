@@ -6,7 +6,7 @@ import { Props } from '../types/formTypes';
 
 export const expectedTypeWork = yup.string();
 
-export const ExpectedTypeWorkController: FC<Props> = ({ control, errors, className }) => (
+export const ExpectedContractTypeController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>
     <Controller
       control={control}

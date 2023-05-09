@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { StudentProfileRequest} from '@backendTypes';
-import { email, EmailController } from './Forms/EmailController';
+// import { email, EmailController } from './Forms/EmailController';
 import { PhoneController, tel } from './Forms/PhoneController';
 import { defaultValues } from './utils/defaultValues';
 import { firstName, FirstNameController } from './Forms/FirstNameController';
@@ -19,10 +19,12 @@ import { MonthsOfCommercialExpController } from './Forms/MonthsOfCommercialExpCo
 import { EducationController } from './Forms/EducationController';
 import { workExperience, WorkExperienceController } from './Forms/WorkExperienceController';
 import { CoursesController } from './Forms/CoursesController';
+import { ExpectedContractTypeController } from './Forms/ExpectedContractTypeController';
+import { ProjectUrlsController } from './Forms/ProjectUrlsController';
 
 export const StudentForm = () => {
   const schema = yup.object().shape({
-    email,
+    // email,
     tel,
     firstName,
     workExperience,
@@ -46,7 +48,7 @@ export const StudentForm = () => {
     <form className="" onSubmit={handleSubmit(onSubmit)}>
       <fieldset className="border-white border border-1 p-3">
         <legend className="px-3">Dane Osobowe:</legend>
-        <EmailController control={control} errors={errors} className="my-4" />
+        {/* <EmailController control={control} errors={errors} className="my-4" /> */}
         <PhoneController control={control} errors={errors} className="my-4" />
         <FirstNameController control={control} errors={errors} className="my-4" />
         <LastNameController control={control} errors={errors} className="my-4" />
@@ -56,6 +58,7 @@ export const StudentForm = () => {
       <fieldset className="border-white border border-1 p-3">
         <legend className="px-3">Portfolio:</legend>
         <GithubUsernameController control={control} errors={errors} className="my-4" />
+        <ProjectUrlsController control={control} errors={errors} className="my-4" />
         <PortfolioUrlsController control={control} errors={errors} className="my-4" />
       </fieldset>
 
@@ -63,9 +66,9 @@ export const StudentForm = () => {
         <legend className="px-3">Preferencje:</legend>
         <ExpectedTypeWorkController control={control} errors={errors} className="my-4" />
         <TargetWorkCityController control={control} errors={errors} className="my-4" />
-        <ExpectedTypeWorkController control={control} errors={errors} className="my-4" />
         <ExpectedSalaryController control={control} errors={errors} className="my-4" />
         <CanTakeApprenticeshipController control={control} errors={errors} className="my-4" />
+        <ExpectedContractTypeController control={control} errors={errors} className="my-4" /> 
       </fieldset>
 
       <fieldset className="border-white border border-1 p-3">
