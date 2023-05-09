@@ -9,7 +9,7 @@ import { LoginRequest } from '@backendTypes';
 import { loginSchema } from './login.schema';
 import { defaultValues } from './default-values';
 import { translations } from '../../../utlils/translations';
-import { AuthButtonWrapper, CustomButton, InputField } from '../../base';
+import { AuthButtonWrapper, AuthFormWrapper, CustomButton, InputField } from '../../base';
 
 export const LoginForm: FC = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ export const LoginForm: FC = () => {
     }
   };
   return (
-    <form className="w-3/5 min-w-fit sm:min-w-0 my-4 max-w-lg" onSubmit={handleSubmit(onSubmit)}>
+    <AuthFormWrapper onSubmit={handleSubmit(onSubmit)}>
       <InputField register={register('email')} type="email" placeholder="E-mail" error={errors.email} />
       <InputField register={register('password')} type="password" placeholder="Hasło" error={errors.password} />
       <p className="flex justify-end text-primary-font-color font-thin text-sm tracking-widest mt-6 mb-10 cursor-pointer">
@@ -54,6 +54,6 @@ export const LoginForm: FC = () => {
           </Link>
         </p>
       </AuthButtonWrapper>
-    </form>
+    </AuthFormWrapper>
   );
 };
