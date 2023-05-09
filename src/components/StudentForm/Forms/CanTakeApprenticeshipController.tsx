@@ -22,7 +22,7 @@ export const CanTakeApprenticeshipController: FC<Props> = ({ control, errors, cl
             value={field.value}
             name={field.name}
             placeholder="bio"
-            className="w-full border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
+            className="ml-5 border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
           />
         </label>
       )}
