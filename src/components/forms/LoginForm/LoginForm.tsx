@@ -47,7 +47,7 @@ export const LoginForm: FC = () => {
         <CustomButton type="submit" text={translations.loginPage.login} />
         <p className="text-primary-font-color font-thin text-sm tracking-widest">
           {translations.loginPage.noAccount}{' '}
-          <Link to={routes.register}>
+          <Link to={routes.registration}>
             <span className="text-primary-font-color underline font-medium cursor-pointer">
               {translations.loginPage.register}
             </span>

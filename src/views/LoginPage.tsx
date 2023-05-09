@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { LoginForm } from '../components/forms/LoginForm';
+import { LoginForm } from '../components/forms';
 import { CenteredContainer } from '../components/base';
 import { AuthLogo } from '../components/ui';
 
