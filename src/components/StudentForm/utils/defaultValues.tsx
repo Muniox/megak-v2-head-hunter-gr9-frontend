@@ -1,7 +1,4 @@
-import {
-  ExpectedContractType,
-  ExpectedTypeWork
-} from '@backendTypes';
+import { ExpectedContractType, ExpectedTypeWork } from '@backendTypes';
 
 export const defaultValues = {
   email: '',
