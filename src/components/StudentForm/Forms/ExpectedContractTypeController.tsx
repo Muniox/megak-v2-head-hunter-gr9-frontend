@@ -24,11 +24,11 @@ export const ExpectedContractTypeController: FC<Props> = ({ control, errors, cla
             className="w-full border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
           >
             <option value={ExpectedContractType.NO_PREFERENCE} defaultChecked>
-              {ExpectedContractType.NO_PREFERENCE}
+              Brak Preferencji
             </option>
-            <option value={ExpectedContractType.B2B_POSSIBLE}>{ExpectedContractType.B2B_POSSIBLE}</option>
-            <option value={ExpectedContractType.UOP_ONLY}>{ExpectedContractType.UOP_ONLY}</option>
-            <option value={ExpectedContractType.UZ_UOD_POSSIBLE}>{ExpectedContractType.UZ_UOD_POSSIBLE}</option>
+            <option value={ExpectedContractType.B2B_POSSIBLE}>Możliwe B2B</option>
+            <option value={ExpectedContractType.UOP_ONLY}>Tylko UoP</option>
+            <option value={ExpectedContractType.UZ_UOD_POSSIBLE}>Możliwe UZ/UoD</option>
           </select>
         </label>
       )}

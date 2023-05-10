@@ -24,12 +24,12 @@ export const ExpectedTypeWorkController: FC<Props> = ({ control, errors, classNa
             className="w-full border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
           >
             <option value={ExpectedTypeWork.NO_PREFERENCE} defaultChecked>
-              {ExpectedTypeWork.NO_PREFERENCE}
+              Bez znaczenia
             </option>
-            <option value={ExpectedTypeWork.HYBRID}>{ExpectedTypeWork.HYBRID}</option>
-            <option value={ExpectedTypeWork.ONSITE}>{ExpectedTypeWork.ONSITE}</option>
-            <option value={ExpectedTypeWork.RELOCATION_READY}>{ExpectedTypeWork.RELOCATION_READY}</option>
-            <option value={ExpectedTypeWork.REMOTE_ONLY}>{ExpectedTypeWork.REMOTE_ONLY}</option>
+            <option value={ExpectedTypeWork.HYBRID}>Hybrydowo</option>
+            <option value={ExpectedTypeWork.ONSITE}>Na miejscu</option>
+            <option value={ExpectedTypeWork.RELOCATION_READY}>Gotowość do przeprowadzki</option>
+            <option value={ExpectedTypeWork.REMOTE_ONLY}>Wyłącznie zdalnie</option>
           </select>
         </label>
       )}
