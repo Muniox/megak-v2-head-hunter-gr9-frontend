@@ -27,7 +27,6 @@ export const AddHr: React.FC = () => {
     fullName: '',
     company: '',
     maxReservedStudents: 1,
-
   };
 
   const {
