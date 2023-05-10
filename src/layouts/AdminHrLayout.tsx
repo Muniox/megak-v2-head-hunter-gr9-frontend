@@ -1,8 +1,9 @@
 import React, { FC, PropsWithChildren } from 'react';
-import { Navbar } from '../components/Navbar';
+
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 import { routes } from '../routes';
+import { Navbar } from '../components/ui';
 
 export const AdminHrLayout: FC<PropsWithChildren> = ({ children }) => {
   const { currentUser } = useAuth();
