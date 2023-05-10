@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { AuthContextProps, AuthContextProviderProps } from '@frontendTypes';
 
-import { LoginRequest, UserResponse } from '@backendTypes';
+import { LoginRequest, UserResponse, UserRole } from '@backendTypes';
 import { apiServer, ENDPOINTS } from '../services';
 
 export const AuthContext = createContext<AuthContextProps | null>(null);
@@ -12,15 +12,22 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   );
 
   const login = async (credentials: LoginRequest) => {
-    const response = await apiServer.post<LoginRequest, UserResponse>(ENDPOINTS.login, credentials);
-
-    if (response.ok && response.data) {
-      setCurrentUser(response.data);
-    } else {
-      throw new Error(
-        Array.isArray(response.error) ? response.error[0].message : response.error?.message || 'Unknown error',
-      );
-    }
+    const user = {
+      id: 'dff59378-a920-4e87-9f50-5b35fe0f225d',
+      email: 'magdalena.michalska@example.com',
+      role: UserRole.ADMIN,
+      isActive: true,
+    };
+    setCurrentUser(user as UserResponse);
+    // const response = await apiServer.post<LoginRequest, UserResponse>(ENDPOINTS.login, credentials);
+    //
+    // if (response.ok && response.data) {
+    //   setCurrentUser(response.data);
+    // } else {
+    //   throw new Error(
+    //     Array.isArray(response.error) ? response.error[0].message : response.error?.message || 'Unknown error',
+    //   );
+    // }
   };
 
   useEffect(() => {
