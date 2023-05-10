@@ -1,8 +1,8 @@
-import { Header } from '../components/Header';
 import { Outlet } from 'react-router-dom';
 import React from 'react';
+import { Header } from '../components/ui';
 
-export const AuthLayout = () => {
+export const AuthorizedLayout = () => {
   return (
     <div>
       <Header />

@@ -1,2 +1,2 @@
 export * from './AdminHrLayout';
-export * from './AuthLayout';
+export * from './AuthorizedLayout';
