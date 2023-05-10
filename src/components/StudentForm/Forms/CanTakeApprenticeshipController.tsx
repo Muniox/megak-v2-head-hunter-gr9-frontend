@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { Props } from '../types/formTypes';
-import {} from '@backendTypes'
 
 export const canTakeApprenticeship = yup.string();
 
@@ -13,9 +12,9 @@ export const CanTakeApprenticeshipController: FC<Props> = ({ control, errors, cl
       name="expectedTypeWork"
       render={({ field }) => (
         <label htmlFor="expectedTypeWork">
-          Czy wyrażasz zgodę na staż? 
+          Czy wyrażasz zgodę na staż?
           <input
-            type='checkbox'
+            type="checkbox"
             id="expectedTypeWork"
             onChange={field.onChange}
             onBlur={field.onBlur}
