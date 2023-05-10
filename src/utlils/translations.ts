@@ -22,4 +22,10 @@ export const translations = {
       match: 'Hasła muszą się zgadzać',
     },
   },
+  navbar: {
+    addStudent: 'Dodaj Kursantów',
+    addHr: 'Dodaj HR',
+    availableStudents: 'Dostępni Kursanci',
+    toTalk: 'Do rozmowy',
+  },
 };
