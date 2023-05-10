@@ -3,7 +3,7 @@ import { Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { Props } from '../types/formTypes';
 
-export const firstName = yup.string();
+export const githubUsername = yup.string();
 
 export const GithubUsernameController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>
