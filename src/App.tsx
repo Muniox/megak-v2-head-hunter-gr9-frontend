@@ -1,49 +1,46 @@
 import React, { FC } from 'react';
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { LoginPage } from './views/LoginPage';
-import { SampleDashboard } from './views/SampleDashboard';
-import { RegistrationLandingPage } from './components/RegistrationLandingPage';
 
-import { AddHr } from './views/AddHr';
-import { AddStudent } from './views/AddStudent';
-import { Header } from './components/Header';
-import { Navbar } from './components/Navbar';
-
-const Layout = () => (
-  <div>
-    <Header />
-    <div className="flex flex-col items-center justify-start w-full h-screen bg-primary-color ">
-      <Navbar />
-      <Outlet />
-    </div>
-  </div>
-);
+import { RegistrationPage } from './views/RegistrationPage';
+import { AuthorizedLayout } from './layouts';
+import { RequireAuth, routes } from './routes';
+import { AddHr } from './views/ProfileAdmin/components/AddHr';
+import { AddStudent } from './views/ProfileAdmin/components/AddStudent';
 
 const router = createBrowserRouter([
   {
-    path: '/login',
+    path: routes.login,
     element: <LoginPage />,
   },
   {
-    path: '/register',
-    element: <RegistrationLandingPage />,
+    path: routes.registration,
+    element: <RegistrationPage />,
   },
   {
-    path: '/',
-    element: <Layout />,
+    path: routes.dashboard,
+    element: <AuthorizedLayout />,
     children: [
       {
-        path: '/dashboard',
-        element: <SampleDashboard />,
-      },
-      {
-        path: '/api/hr',
-        element: <AddHr />,
-      },
-      {
-        path: '/api/students/import',
-        element: <AddStudent />,
+        path: routes.dashboard,
+        element: <RequireAuth />,
+        children: [
+          {
+            path: routes.addHr,
+            element: <AddHr />,
+          },
+          { path: routes.addStudent, element: <AddStudent /> },
+          {
+            path: routes.availableStudents,
+            element: <div className="text-amber-300">Dostępni Kursanci</div>,
+          },
+          {
+            path: routes.toTalk,
+            element: <div className="text-amber-300">Do rozmowy</div>,
+          },
+        ],
       },
     ],
   },
