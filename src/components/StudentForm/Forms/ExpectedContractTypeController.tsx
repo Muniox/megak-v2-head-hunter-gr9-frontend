@@ -4,18 +4,18 @@ import * as yup from 'yup';
 import { ExpectedContractType } from '@backendTypes';
 import { Props } from '../types/formTypes';
 
-export const expectedTypeWork = yup.string();
+export const expectedContractType = yup.string();
 
 export const ExpectedContractTypeController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>
     <Controller
       control={control}
-      name="expectedTypeWork"
+      name="expectedContractType"
       render={({ field }) => (
-        <label htmlFor="expectedTypeWork">
+        <label htmlFor="expectedContractType">
           Typ pracy:
           <select
-            id="expectedTypeWork"
+            id="expectedContractType"
             onChange={field.onChange}
             onBlur={field.onBlur}
             value={field.value}
