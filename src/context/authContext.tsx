@@ -25,9 +25,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       throw new Error(
-        Array.isArray(response.error)
-          ? response.error[0].message.message
-          : response.error?.message.message || 'Unknown error',
+        Array.isArray(response.error) ? response.error[0].message : response.error?.message || 'Unknown error',
       );
     }
   };
