@@ -1,9 +1,9 @@
-import { RegisterRequest, UserResponse } from '@backendTypes';
+import { LoginRequest, UserResponse } from '@backendTypes';
 import { ReactNode } from 'react';
 
 export interface AuthContextProps {
   currentUser: UserResponse | null;
-  login: (inputs: RegisterRequest) => Promise<void>;
+  login: (credentials: LoginRequest) => Promise<void>;
 }
 
 export interface AuthContextProviderProps {

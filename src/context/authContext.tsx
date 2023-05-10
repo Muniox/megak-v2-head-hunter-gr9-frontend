@@ -1,6 +1,8 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { AuthContextProps, AuthContextProviderProps, ClientApiUserResponse } from '@frontendTypes';
-import { RegisterRequest, UserResponse } from '@backendTypes';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { AuthContextProps, AuthContextProviderProps } from '@frontendTypes';
+
+import { LoginRequest, UserResponse, UserRole } from '@backendTypes';
+import { apiServer, ENDPOINTS } from '../services';
 
 export const AuthContext = createContext<AuthContextProps | null>(null);
 
@@ -9,33 +11,38 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     JSON.parse(localStorage.getItem('user') || 'null'),
   );
 
-  const login = async (inputs: RegisterRequest) => {
-    const data = await fetch('http://localhost:3001/api/auth/login', {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(inputs),
-    });
-    const response = (await data.json()) as ClientApiUserResponse;
-    if (response.ok) {
-      setCurrentUser(response.data ?? null);
-    } else {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      throw new Error(
-        Array.isArray(response.error)
-          ? response.error[0].message.message
-          : response.error?.message.message || 'Unknown error',
-      );
-    }
+  const login = async (credentials: LoginRequest) => {
+    const user = {
+      id: 'dff59378-a920-4e87-9f50-5b35fe0f225d',
+      email: 'magdalena.michalska@example.com',
+      role: UserRole.ADMIN,
+      isActive: true,
+    };
+    setCurrentUser(user as UserResponse);
+    // const response = await apiServer.post<LoginRequest, UserResponse>(ENDPOINTS.login, credentials);
+    //
+    // if (response.ok && response.data) {
+    //   setCurrentUser(response.data);
+    // } else {
+    //   throw new Error(
+    //     Array.isArray(response.error) ? response.error[0].message : response.error?.message || 'Unknown error',
+    //   );
+    // }
   };
 
   useEffect(() => {
     localStorage.setItem('user', JSON.stringify(currentUser));
   }, [currentUser]);
 
-  // eslint-disable-next-line react/jsx-no-constructed-context-values
   return <AuthContext.Provider value={{ currentUser, login }}>{children}</AuthContext.Provider>;
+};
+
+export const useAuth = (): AuthContextProps => {
+  const auth = useContext(AuthContext);
+
+  if (!auth) {
+    throw new Error('useAuth must be used within an AuthContextProvider.');
+  }
+
+  return auth;
 };

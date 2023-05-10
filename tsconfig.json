@@ -18,7 +18,6 @@
     "jsx": "react-jsx",
     "preserveConstEnums": true,
     "noImplicitAny": true,
-    "sourceMap": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
