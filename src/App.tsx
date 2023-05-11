@@ -9,11 +9,16 @@ import { AuthorizedLayout } from './layouts';
 import { RequireAuth, routes } from './routes';
 import { AddHr } from './views/ProfileAdmin/components/AddHr';
 import { AddStudent } from './views/ProfileAdmin/components/AddStudent';
+import { FilterFrom } from './components/FilterForm';
 
 const router = createBrowserRouter([
   {
     path: routes.login,
     element: <LoginPage />,
+  },
+  {
+    path: routes.filter,
+    element: <FilterFrom />,
   },
   {
     path: routes.registration,
