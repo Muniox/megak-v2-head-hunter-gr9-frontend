@@ -51,6 +51,9 @@ export const translations = {
       submit: 'Zarejestruj się',
     },
   },
+  fileInputField: {
+    placeholder: 'Brak pliku',
+  },
 
   navbar: {
     links: {
@@ -62,8 +65,13 @@ export const translations = {
   },
   addStudents: {
     title: 'Dodaj Kursantów',
-    buttons: {
-      add: 'Prześlij plik',
+    form: {
+      schema: {
+        required: 'Plik jest wymagany',
+        fileFormat: 'Nieprawidłowy format pliku - musi być .csv',
+        fileSize: 'Plik jest za duży - maksymalny rozmiar to 20MB',
+      },
+      submit: 'Prześlij plik',
       chooseFile: 'Wybierz plik',
     },
   },
