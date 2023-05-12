@@ -5,7 +5,7 @@ export const routes = {
   dashboard: '/dashboard',
   forgetPassword: '/forget-password',
   logout: '/logout',
-  addStudent: '/dashboard/add-student',
+  addStudents: '/dashboard/add-students',
   addHr: '/dashboard/add-hr',
   availableStudents: '/dashboard/available-students',
   toTalk: '/dashboard/to-talk',

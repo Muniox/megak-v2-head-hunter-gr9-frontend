@@ -1,7 +1,7 @@
 import { RegistrationCredentials } from './types';
 
 export const defaultValues: RegistrationCredentials = {
-  email: 'marian.kowalski@example.com',
+  email: 'john.doe@gmail.com',
   password: '',
   repeatPassword: '',
 };

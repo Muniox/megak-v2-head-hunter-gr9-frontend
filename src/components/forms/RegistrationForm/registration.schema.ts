@@ -2,18 +2,21 @@ import * as yup from 'yup';
 import { translations } from '../../../utlils/translations';
 
 export const registrationSchema = yup.object().shape({
-  email: yup.string().email('Email musi mieć odpowiedni format').required('Email jest wymagany'),
+  email: yup
+    .string()
+    .email(translations.registration.form.schema.email.normal)
+    .required(translations.registration.form.schema.email.required),
   password: yup
     .string()
-    .required(translations.authSchema.password.required)
-    .min(8, translations.authSchema.password.min)
-    .max(24, translations.authSchema.password.max)
-    .matches(/[a-z]/, translations.authSchema.password.smallLetter)
-    .matches(/[A-Z]/, translations.authSchema.password.bigLetter)
-    .matches(/\d/, translations.authSchema.password.number)
-    .matches(/[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/, translations.authSchema.password.specialCharacter),
+    .required(translations.registration.form.schema.password.required)
+    .min(8, translations.registration.form.schema.password.min)
+    .max(24, translations.registration.form.schema.password.max)
+    .matches(/[a-z]/, translations.registration.form.schema.password.smallLetter)
+    .matches(/[A-Z]/, translations.registration.form.schema.password.bigLetter)
+    .matches(/\d/, translations.registration.form.schema.password.number)
+    .matches(/[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/, translations.registration.form.schema.password.specialCharacter),
   repeatPassword: yup
     .string()
-    .required(translations.authSchema.password.repeatPassword)
-    .oneOf([yup.ref('password')], translations.authSchema.password.match),
+    .required(translations.registration.form.schema.password.repeatPassword)
+    .oneOf([yup.ref('password')], translations.registration.form.schema.password.match),
 });
