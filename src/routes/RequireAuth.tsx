@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuth } from '../context/authContext';
 import { Navigate } from 'react-router-dom';
-import { routes } from '../routes';
+import { routes } from './routes';
 import { UserRole } from '@backendTypes';
 import { ProfileAdmin } from '../views/ProfileAdmin';
 import { ProfileHr } from '../views/ProfileHr';

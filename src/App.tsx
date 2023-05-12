@@ -1,23 +1,34 @@
 import React, { FC } from 'react';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
-import { LoginPage } from './views/LoginPage';
+import { Login } from './views/Login';
 
-import { RegistrationPage } from './views/RegistrationPage';
+import { Registration } from './views/Registration';
 import { AuthorizedLayout } from './layouts';
-import { RequireAuth, routes } from './routes';
+import { ProtectedRoute, RequireAuth, routes } from './routes';
 import { AddHr } from './views/ProfileAdmin/components/AddHr';
-import { AddStudent } from './views/ProfileAdmin/components/AddStudent';
+import { AddStudents } from './views/ProfileAdmin/components/AddStudents';
+import { UserRole } from '@backendTypes';
+import { AvailableStudents } from './views/ProfileHr/components/AvailableStudents';
+import { ToTalk } from './views/ProfileHr/components/ToTalk';
 
 const router = createBrowserRouter([
   {
+    path: routes.home,
+    element: <Navigate to={routes.login} />,
+  },
+  {
     path: routes.login,
-    element: <LoginPage />,
+    element: <Login />,
   },
   {
     path: routes.registration,
-    element: <RegistrationPage />,
+    element: <Registration />,
+  },
+  {
+    path: '/activation',
+    element: <Navigate to={routes.registration} />,
   },
   {
     path: routes.dashboard,
@@ -29,16 +40,19 @@ const router = createBrowserRouter([
         children: [
           {
             path: routes.addHr,
-            element: <AddHr />,
+            element: <ProtectedRoute element={<AddHr />} requiredRole={UserRole.ADMIN} />,
           },
-          { path: routes.addStudent, element: <AddStudent /> },
+          {
+            path: routes.addStudents,
+            element: <ProtectedRoute element={<AddStudents />} requiredRole={UserRole.ADMIN} />,
+          },
           {
             path: routes.availableStudents,
-            element: <div className="text-amber-300">Dostępni Kursanci</div>,
+            element: <ProtectedRoute element={<AvailableStudents />} requiredRole={UserRole.HR} />,
           },
           {
             path: routes.toTalk,
-            element: <div className="text-amber-300">Do rozmowy</div>,
+            element: <ProtectedRoute element={<ToTalk />} requiredRole={UserRole.HR} />,
           },
         ],
       },
