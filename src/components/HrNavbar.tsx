@@ -5,7 +5,7 @@ export const HrNavbar: React.FC = () => (
     <div className="mb-3 ml-0 flex list-none flex-row flex-wrap items-center justify-start absolute inset-0 pb-5 border-b border-divider-line-color">
       <button
         type="button"
-        className="hover:border-login-btn-color ease-linear hover:border-b-2 border-t-0 px-7 pb-3.5 pt-4 text-sm text-available-students-details-font-color hover:text-primary-font-color"
+        className="border-login-btn-color ease-linear border-b-2 border-t-0 px-7 pb-3.5 pt-4 text-sm text-available-students-details-font-color text-primary-font-color"
       >
         Dostępni kursanci
       </button>
@@ -13,7 +13,6 @@ export const HrNavbar: React.FC = () => (
         type="submit"
         className="hover:border-login-btn-color ease-linear hover:border-b-2 border-t-0 px-7 pb-3.5 pt-4 text-sm text-available-students-details-font-color hover:text-primary-font-color"
       >
-        {' '}
         Do rozmowy
       </button>
     </div>

@@ -18,6 +18,7 @@ export const Filter: React.FC = () => (
           clipRule="evenodd"
         />
       </svg>
+      Filtrowanie
     </button>
   </div>
 );

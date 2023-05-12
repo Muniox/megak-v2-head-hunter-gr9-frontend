@@ -9,7 +9,7 @@ export const SearchInput: React.FC = () => {
   };
 
   return (
-    <form className="relative block w-1/3 h-2/3" onSubmit={handleSubmit}>
+    <form className="relative block w-1/4 h-2/3" onSubmit={handleSubmit}>
         <span className="absolute inset-y-0 left-0 flex items-center pl-3 pb-1">
           <img className="py-2 h-15 w-15 " src={Magnifier} alt="magnifier" />
         </span>
