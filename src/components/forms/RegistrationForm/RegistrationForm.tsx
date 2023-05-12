@@ -51,7 +51,7 @@ export const RegistrationForm = () => {
         error={errors.repeatPassword}
       />
       <AuthButtonWrapper>
-        <CustomButton type="submit" text={translations.registration.form.submit} />
+        <CustomButton type="submit">{translations.registration.form.submit}</CustomButton>
       </AuthButtonWrapper>
     </AuthFormWrapper>
   );
