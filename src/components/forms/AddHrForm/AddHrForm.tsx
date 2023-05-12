@@ -37,7 +37,7 @@ export const AddHrForm: FC<Props> = ({ setHrData }) => {
         <InputField
           register={register('email')}
           type="email"
-          placeholder={translations.addHr.forms.placeholders.email}
+          placeholder={translations.addHr.form.placeholders.email}
           error={errors.email}
         />
       </div>
@@ -45,7 +45,7 @@ export const AddHrForm: FC<Props> = ({ setHrData }) => {
         <InputField
           register={register('fullName')}
           type="text"
-          placeholder={translations.addHr.forms.placeholders.fullName}
+          placeholder={translations.addHr.form.placeholders.fullName}
           error={errors.fullName}
         />
       </div>
@@ -53,7 +53,7 @@ export const AddHrForm: FC<Props> = ({ setHrData }) => {
         <InputField
           register={register('company')}
           type="text"
-          placeholder={translations.addHr.forms.placeholders.company}
+          placeholder={translations.addHr.form.placeholders.company}
           error={errors.company}
         />
       </div>
@@ -61,11 +61,11 @@ export const AddHrForm: FC<Props> = ({ setHrData }) => {
         <InputField
           register={register('maxReservedStudents')}
           type="number"
-          placeholder={translations.addHr.forms.placeholders.maxReservedStudents}
+          placeholder={translations.addHr.form.placeholders.maxReservedStudents}
           error={errors.maxReservedStudents}
         />
       </div>
-      <CustomButton type="submit" text={translations.addHr.forms.submit} />
+      <CustomButton type="submit" text={translations.addHr.form.submit} />
     </form>
   );
 };

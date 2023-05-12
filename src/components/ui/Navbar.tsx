@@ -11,22 +11,22 @@ export const Navbar: React.FC<Props> = ({ role }) => {
   const hrLinks = [
     {
       route: routes.availableStudents,
-      text: translations.navbar.availableStudents,
+      text: translations.navbar.links.availableStudents,
     },
     {
       route: routes.toTalk,
-      text: translations.navbar.toTalk,
+      text: translations.navbar.links.toTalk,
     },
   ];
 
   const adminLinks = [
     {
-      route: routes.addStudent,
-      text: translations.navbar.addStudent,
+      route: routes.addStudents,
+      text: translations.navbar.links.addStudents,
     },
     {
       route: routes.addHr,
-      text: translations.navbar.addHr,
+      text: translations.navbar.links.addHr,
     },
   ];
 

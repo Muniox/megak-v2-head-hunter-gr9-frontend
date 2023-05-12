@@ -5,7 +5,7 @@ interface Props {
   reason: string;
 }
 
-export const RegistrationResultPage = ({ isSuccessful, reason }: Props) => {
+export const RegistrationResult = ({ isSuccessful, reason }: Props) => {
   const handleReturn = () => {
     console.log('return');
   };

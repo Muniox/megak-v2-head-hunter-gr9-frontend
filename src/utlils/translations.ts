@@ -1,32 +1,64 @@
 export const translations = {
-  loginPage: {
-    forgotPassword: 'Zapomniałeś hasła?',
-    noAccount: 'Nie masz konta?',
-    register: 'Zarejestruj się',
-    login: 'Zaloguj się',
-  },
-  authSchema: {
-    email: {
-      required: 'Email jest wymagany',
-      normal: 'Email musi mieć odpowiedni format',
+  login: {
+    links: {
+      forgotPassword: 'Zapomniałeś hasła?',
+      register: 'Zarejestruj się',
     },
-    password: {
-      required: 'Hasło jest wymagane',
-      min: 'Hasło musi mieć co najmniej 8 znaków',
-      max: 'Hasło może mieć maksymalnie 24 znaki',
-      smallLetter: 'Hasło musi zawierać co najmniej jedną małą literę',
-      bigLetter: 'Hasło musi zawierać co najmniej jedną dużą literę',
-      number: 'Hasło musi zawierać co najmniej jedną cyfrę',
-      specialCharacter: 'Hasło musi zawierać co najmniej jeden znak specjalny',
-      repeatPassword: 'Powtórzenie hasła jest wymagane',
-      match: 'Hasła muszą się zgadzać',
+    descriptions: {
+      noAccount: 'Nie masz konta?',
+    },
+    form: {
+      placeholders: {
+        email: 'Podaj email',
+        password: 'Podaj hasło',
+      },
+      schema: {
+        email: {
+          required: 'Email jest wymagany',
+          normal: 'Email musi mieć odpowiedni format',
+        },
+        password: {
+          required: 'Hasło jest wymagane',
+          min: 'Hasło musi mieć co najmniej 8 znaków',
+        },
+      },
+      submit: 'Zaloguj się',
     },
   },
+  registration: {
+    form: {
+      placeholders: {
+        password: 'Podaj hasło',
+        repeatPassword: 'Powtórz hasło',
+      },
+      schema: {
+        email: {
+          required: 'Email jest wymagany',
+          normal: 'Email musi mieć odpowiedni format',
+        },
+        password: {
+          required: 'Hasło jest wymagane',
+          min: 'Hasło musi mieć co najmniej 8 znaków',
+          max: 'Hasło może mieć maksymalnie 24 znaki',
+          smallLetter: 'Hasło musi zawierać co najmniej jedną małą literę',
+          bigLetter: 'Hasło musi zawierać co najmniej jedną dużą literę',
+          number: 'Hasło musi zawierać co najmniej jedną cyfrę',
+          specialCharacter: 'Hasło musi zawierać co najmniej jeden znak specjalny',
+          repeatPassword: 'Powtórzenie hasła jest wymagane',
+          match: 'Hasła muszą się zgadzać',
+        },
+      },
+      submit: 'Zarejestruj się',
+    },
+  },
+
   navbar: {
-    addStudents: 'Dodaj Kursantów',
-    addHr: 'Dodaj Rekrutera',
-    availableStudents: 'Dostępni Kursanci',
-    toTalk: 'Do rozmowy',
+    links: {
+      addStudents: 'Dodaj Kursantów',
+      addHr: 'Dodaj Rekrutera',
+      availableStudents: 'Dostępni Kursanci',
+      toTalk: 'Do rozmowy',
+    },
   },
   addStudents: {
     title: 'Dodaj Kursantów',
@@ -37,7 +69,7 @@ export const translations = {
   },
   addHr: {
     title: 'Dodaj Rekrutera',
-    forms: {
+    form: {
       placeholders: {
         email: 'Podaj email',
         fullName: 'Podaj imię i nazwisko',
