@@ -32,6 +32,7 @@ export const StudentForm = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (inputs: StudentProfile) => {
+    console.log(inputs);
     const portfolioUrls: string[] = [];
     inputs.projectUrls.map((item) => portfolioUrls.push(item.url));
 

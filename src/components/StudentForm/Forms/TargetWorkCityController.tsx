@@ -3,7 +3,7 @@ import { Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { Props } from '../types/formTypes';
 
-export const targetWorkCity = yup.string();
+export const targetWorkCity = yup.string().min(1, 'Minimalna ilość znaków 1').max(100, 'Maksymalna ilość znaków 100');
 
 export const TargetWorkCityController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>

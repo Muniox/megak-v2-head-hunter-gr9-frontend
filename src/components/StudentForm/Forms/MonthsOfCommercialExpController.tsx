@@ -4,7 +4,10 @@ import * as yup from 'yup';
 
 import { Props } from '../types/formTypes';
 
-export const monthsOfCommercialExp = yup.string();
+export const monthsOfCommercialExp = yup
+  .number()
+  .min(0, 'Minimalna ilość miesięcy nie może być mniejsza niż 0')
+  .required('Pole wymagane');
 
 export const MonthsOfCommercialExpController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>

@@ -3,7 +3,7 @@ import { Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { Props } from '../types/formTypes';
 
-export const expectedSalary = yup.string();
+export const expectedSalary = yup.string().min(1, 'Minimalna wartość 1').max(10, 'Maksymalna wartość 9999999999');
 
 export const ExpectedSalaryController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>

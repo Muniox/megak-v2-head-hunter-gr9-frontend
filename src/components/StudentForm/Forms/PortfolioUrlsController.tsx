@@ -3,7 +3,11 @@ import { Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { Props } from '../types/formTypes';
 
-export const portfolioUrls = yup.string();
+export const portfolioUrls = yup.array().of(
+  yup.object().shape({
+    url: yup.string().url('to nie jest url'),
+  }),
+);
 
 export const PortfolioUrlsController: FC<Props> = ({ control, errors, className, fields, append, remove }) => (
   <>
@@ -26,7 +30,7 @@ export const PortfolioUrlsController: FC<Props> = ({ control, errors, className,
             />
           )}
         />
-        {errors.portfolioUrls?.message && <span className="text-red-500">{errors.portfolioUrls.message}</span>}
+        {errors.portfolioUrls && <span className="text-red-500">{errors.portfolioUrls[index]?.url?.message}</span>}
         <button type="button" onClick={() => remove?.(index)}>
           Usuń
         </button>

@@ -3,7 +3,11 @@ import { Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { Props } from '../types/formTypes';
 
-export const lastName = yup.string();
+export const lastName = yup
+  .string()
+  .min(1, 'Minimalna ilość znaków 1.')
+  .max(50, 'Maksymalna ilość znaków 50.')
+  .required();
 
 export const LastNameController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>

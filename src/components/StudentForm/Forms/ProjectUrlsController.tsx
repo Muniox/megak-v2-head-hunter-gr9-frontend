@@ -3,7 +3,11 @@ import { Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { Props } from '../types/formTypes';
 
-export const projectUrls = yup.string();
+export const projectUrls = yup.array().of(
+  yup.object().shape({
+    url: yup.string().url().min(1, 'Minimalna ilość znaków 1'),
+  }),
+);
 
 export const ProjectUrlsController: FC<Props> = ({ control, errors, className, fields, append, remove }) => (
   <>
@@ -26,7 +30,7 @@ export const ProjectUrlsController: FC<Props> = ({ control, errors, className, f
             />
           )}
         />
-        {errors.projectUrls?.message && <span className="text-red-500">{errors.projectUrls.message}</span>}
+        {errors.projectUrls && <span className="text-red-500">{errors.projectUrls[index]?.url?.message}</span>}
         <button type="button" onClick={() => remove?.(index)}>
           Usuń
         </button>
