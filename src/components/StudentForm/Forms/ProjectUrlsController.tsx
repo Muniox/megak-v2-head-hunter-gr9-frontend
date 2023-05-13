@@ -5,7 +5,7 @@ import { Props } from '../types/formTypes';
 
 export const projectUrls = yup.array().of(
   yup.object().shape({
-    url: yup.string().url().min(1, 'Minimalna ilość znaków 1'),
+    url: yup.string().url('Podaj prawidłowy link do projektu'),
   }),
 );
 

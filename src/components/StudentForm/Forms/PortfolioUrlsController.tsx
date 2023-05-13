@@ -5,7 +5,7 @@ import { Props } from '../types/formTypes';
 
 export const portfolioUrls = yup.array().of(
   yup.object().shape({
-    url: yup.string().url('to nie jest url'),
+    url: yup.string().url('Podaj prawidłowy link do portfolio'),
   }),
 );
 
