@@ -3,7 +3,7 @@ import { Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { Props } from '../types/formTypes';
 
-export const bio = yup.string();
+export const bio = yup.string().max(1000, 'Maksymalnie 1000 znaków.');
 
 export const BioController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>

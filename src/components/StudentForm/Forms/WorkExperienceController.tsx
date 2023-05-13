@@ -4,7 +4,7 @@ import * as yup from 'yup';
 
 import { Props } from '../types/formTypes';
 
-export const workExperience = yup.string();
+export const workExperience = yup.string().min(0).max(2000, 'Maksymalna ilość znaków 2000');
 
 export const WorkExperienceController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>

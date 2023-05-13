@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { ExpectedContractType } from '@backendTypes';
 import { Props } from '../types/formTypes';
 
-export const expectedContractType = yup.string();
+export const expectedContractType = yup.string().required('Pole wymagane');
 
 export const ExpectedContractTypeController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>
