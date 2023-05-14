@@ -12,7 +12,7 @@ import { AddStudents } from './views/ProfileAdmin/components/AddStudents';
 import { UserRole } from '@backendTypes';
 import { AvailableStudents } from './views/ProfileHr/components/AvailableStudents';
 import { ToTalk } from './views/ProfileHr/components/ToTalk';
-import { StudentFormPage } from './pages/StudentFormPage';
+import { AddStudentInfo } from './views/ProfileStudent/components/AddStudentInfo';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +31,7 @@ const router = createBrowserRouter([
     path: '/activation',
     element: <Navigate to={routes.registration} />,
   },
+  {},
   {
     path: routes.dashboard,
     element: <AuthorizedLayout />,
@@ -56,8 +57,9 @@ const router = createBrowserRouter([
             element: <ProtectedRoute element={<ToTalk />} requiredRole={UserRole.HR} />,
           },
           {
-            path: routes.addStudentInfo element={<StudentFormPage />} requiredRole={UserRole.Student}
-          }
+            path: routes.addStudentInfo,
+            element: <ProtectedRoute element={<AddStudentInfo />} requiredRole={UserRole.STUDENT} />,
+          },
         ],
       },
     ],
