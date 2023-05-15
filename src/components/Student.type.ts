@@ -1,63 +1,68 @@
-export interface IStudent {
-  id: string;
-  firstName: string;
-  lastName: string;
-  courseCompletion: number;
-  courseEngagement: number;
-  projectDegree: number;
-  teamProjectDegree: number;
-  expectedTypeWork: string;
-  targetWorkCity?: string;
-  expectedContractType: string;
-  expectedSalary?: string;
-  canTakeApprenticeship: boolean;
-  monthsOfCommercialExp: number;
-}
+import { StudentGradesAndEmpExpectationsResponse } from '@backendTypes';
+import { ExpectedContractType, ExpectedTypeWork } from '../../../backend/src/types/student-profile/student-profile';
 
-export const mockStudentsList: IStudent[] = [
+export const mockStudentsList: StudentGradesAndEmpExpectationsResponse[] = [
   {
-    id: 'a413dbc5-f91a-4500-a41f-4b46bc54e5ec',
-    firstName: 'Jan',
-    lastName: 'Mokwa',
-    courseCompletion: 3,
-    courseEngagement: 5,
-    projectDegree: 4,
-    teamProjectDegree: 3,
-    expectedTypeWork: 'Praca zdalna',
-    targetWorkCity: 'Poznań',
-    expectedContractType: 'no_preference',
-    expectedSalary: '5000',
-    canTakeApprenticeship: true,
-    monthsOfCommercialExp: 12,
+    studentId: 'a413dbc5-f91a-4500-a41f-4b46bc54e5ec',
+    createdAt: new Date(),
+    details: {
+      profile: { firstName: 'Jan', lastName: 'Mokwa' },
+      grades: {
+        courseCompletion: 3,
+        courseEngagement: 5,
+        projectDegree: 4,
+        teamProjectDegree: 3,
+      },
+      employmentExpectations: {
+        expectedTypeWork: ExpectedTypeWork.ONSITE,
+        targetWorkCity: 'Poznań',
+        expectedContractType: ExpectedContractType.NO_PREFERENCE,
+        expectedSalary: '5000',
+        canTakeApprenticeship: true,
+        monthsOfCommercialExp: 12,
+      },
+    },
   },
   {
-    id: 'c413dbc5-tyu4500-a41f-4b46bc54e5ec',
-    firstName: 'Janina',
-    lastName: 'Wieczorek',
-    courseCompletion: 5,
-    courseEngagement: 3,
-    projectDegree: 2,
-    teamProjectDegree: 4,
-    expectedTypeWork: 'Praca w biurze',
-    targetWorkCity: 'Warszawa',
-    expectedContractType: 'no_preference',
-    expectedSalary: '4000',
-    canTakeApprenticeship: true,
-    monthsOfCommercialExp: 8,
+    studentId: 'c413dbc5-tyu4500-a41f-4b46bc54e5ec',
+    createdAt: new Date(),
+    details: {
+      profile: { firstName: 'Janina', lastName: 'Wieczorek' },
+      grades: {
+        courseCompletion: 5,
+        courseEngagement: 3,
+        projectDegree: 2,
+        teamProjectDegree: 4,
+      },
+      employmentExpectations: {
+        expectedTypeWork: ExpectedTypeWork.RELOCATION_READY,
+        targetWorkCity: 'Warszawa',
+        expectedContractType: ExpectedContractType.B2B_POSSIBLE,
+        expectedSalary: '4000',
+        canTakeApprenticeship: false,
+        monthsOfCommercialExp: 8,
+      },
+    },
   },
   {
-    id: 'b413dbc5-f91a-4500-a41f-4b46bc54e5ec',
-    firstName: 'Aleksander',
-    lastName: 'Sępowicz',
-    courseCompletion: 4,
-    courseEngagement: 5,
-    projectDegree: 5,
-    teamProjectDegree: 3,
-    expectedTypeWork: 'Praca zdalnia',
-    targetWorkCity: 'Kraków',
-    expectedContractType: 'no_preference',
-    expectedSalary: '2000',
-    canTakeApprenticeship: true,
-    monthsOfCommercialExp: 2,
+    studentId: 'b413dbc5-f91a-4500-a41f-4b46bc54e5ec',
+    createdAt: new Date(),
+    details: {
+      profile: { firstName: 'Aleksander', lastName: 'Sępowicz' },
+      grades: {
+        courseCompletion: 4,
+        courseEngagement: 5,
+        projectDegree: 5,
+        teamProjectDegree: 3,
+      },
+      employmentExpectations: {
+        expectedTypeWork: ExpectedTypeWork.HYBRID,
+        targetWorkCity: 'Kraków',
+        expectedContractType: ExpectedContractType.UZ_UOD_POSSIBLE,
+        expectedSalary: '2000',
+        canTakeApprenticeship: true,
+        monthsOfCommercialExp: 2,
+      },
+    },
   },
-]
+];
