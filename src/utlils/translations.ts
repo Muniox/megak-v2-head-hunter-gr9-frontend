@@ -108,4 +108,42 @@ export const translations = {
       submit: 'Dodaj',
     },
   },
+  studentDetails: {
+    labels: {
+      courseCompletion: 'Ocena przejścia kursu',
+      courseEngagement: 'Ocena aktywności i zaangażowania na kursie',
+      projectDegree: 'Ocena kodu w projekcie własnym',
+      teamProjectDegree: 'Ocena pracy w zespole Scrum',
+      expectedTypeWork: 'Preferowane miejsce pracy',
+      targetWorkCity: 'Docelowe miasto, gdzie chce pracować kandydat',
+      expectedContractType: 'Oczekiwany typ kontraktu',
+      expectedSalary: 'Oczekiwane wynagrodzenie miesięczne netto',
+      canTakeApprenticeship: 'Zgoda na odbycie bezpłatnych praktyk/stażu na początek',
+      monthsOfCommercialExp: 'Komercyjne doświadczenie w programowaniu',
+    },
+    values: {
+      expectedTypeWork: {
+        ONSITE: 'Tylko w biurze',
+        RELOCATION_READY: 'Gotowy do przeprowadzki',
+        REMOTE_ONLY: 'Wyłącznie zdalnie',
+        HYBRID: 'Hybrydowy',
+        NO_PREFERENCE: 'Bez znaczenia',
+      },
+      expectedContractType: {
+        UOP_ONLY: 'Tylko UoP',
+        B2B_POSSIBLE: 'Możliwe B2B',
+        UZ_UOD_POSSIBLE: 'Możliwe UZ/UoD',
+        NO_PREFERENCE: 'Bez preferencji',
+      },
+      boolean: {
+        true: 'TAK',
+        false: 'NIE',
+      },
+    },
+  },
+  studentRow: {
+    buttons: {
+      bookACall: 'Zarezerwuj rozmowę',
+    },
+  },
 };
