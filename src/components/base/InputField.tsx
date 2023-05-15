@@ -10,11 +10,11 @@ interface InputFieldProps {
 
 export const InputField: React.FC<InputFieldProps> = ({ register, type, placeholder, error }) => {
   return (
-    <div className="my-4 mx-0">
+    <div className="flex lg:w-96 justify-center my-2 md:my-4 mx-0">
       <input
         {...register}
         type={type}
-        className="w-full border-none bg-secondary-color text-student-ratings-font-color text-lg py-2 px-6 focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
+        className=" w-full p-2 mx-2 text-center text-ms border-none bg-secondary-color text-student-ratings-font-color md:text-lg focus:outline-none focus:shadow-lg focus:bg-filter-window-btn-color focus:text-primary-font-color"
         placeholder={placeholder}
       />
       {error && <p className="text-red-500">{error.message}</p>}

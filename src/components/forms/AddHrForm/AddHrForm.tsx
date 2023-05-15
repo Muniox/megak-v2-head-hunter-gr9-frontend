@@ -32,8 +32,11 @@ export const AddHrForm: FC<Props> = ({ setHrData }) => {
     }
   };
   return (
-    <form className="w-full max-w-sm p-4" onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-4">
+    <form
+      className="flex flex-col w-full lg:w-5/6 justify-center items-center max-w-sm p-1 md:p-4 "
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <div className="mb-0 md:mb-1">
         <InputField
           register={register('email')}
           type="email"
@@ -41,7 +44,7 @@ export const AddHrForm: FC<Props> = ({ setHrData }) => {
           error={errors.email}
         />
       </div>
-      <div className="mb-4">
+      <div className="mb-0 md:mb-1">
         <InputField
           register={register('fullName')}
           type="text"
@@ -49,7 +52,7 @@ export const AddHrForm: FC<Props> = ({ setHrData }) => {
           error={errors.fullName}
         />
       </div>
-      <div className="mb-4">
+      <div className="mb-0 md:mb-1">
         <InputField
           register={register('company')}
           type="text"
@@ -57,7 +60,7 @@ export const AddHrForm: FC<Props> = ({ setHrData }) => {
           error={errors.company}
         />
       </div>
-      <div className="mb-4">
+      <div className="mb-0 md:mb-1">
         <InputField
           register={register('maxReservedStudents')}
           type="number"
@@ -65,7 +68,7 @@ export const AddHrForm: FC<Props> = ({ setHrData }) => {
           error={errors.maxReservedStudents}
         />
       </div>
-      <CustomButton type="submit" text={translations.addHr.form.submit} />
+      <CustomButton type="submit" className="w-52 lg:w-96 md:w-60 my-2 h-10" text={translations.addHr.form.submit} />
     </form>
   );
 };
