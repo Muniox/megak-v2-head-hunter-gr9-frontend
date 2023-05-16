@@ -23,7 +23,7 @@ export const FileInputField: React.FC<Props> = ({ register, text, error }) => {
         <input {...register} type="file" className="hidden " id="fileInput" onChange={handleFileChange} />
         <label
           htmlFor="fileInput"
-          className="transition ease-in-out delay-100 w-48 lg:w-64 h-8 md:h-10 lg:mb-0 mb-1 lg:mr-1 text-center py-1 md:py-2 lg:py-2 px-4 duration-200 text-primary-font-color font-thin  tracking-wider bg-btn-color hover:bg-btn-hover-color focus:outline-none focus:ring-2 focus:ring-primary-font-color focus:ring-opacity-50 cursor-pointer"
+          className="transition ease-in-out delay-100 w-60 lg:w-64 h-8 md:h-10 lg:mb-0 mb-1 lg:mr-1 text-center py-1 md:py-2 lg:py-2 px-4 duration-200 text-primary-font-color font-thin  tracking-wider bg-btn-color hover:bg-btn-hover-color focus:outline-none focus:ring-2 focus:ring-primary-font-color focus:ring-opacity-50 cursor-pointer"
         >
           {text}
         </label>

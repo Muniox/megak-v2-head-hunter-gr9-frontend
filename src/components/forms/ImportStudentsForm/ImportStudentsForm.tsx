@@ -43,9 +43,9 @@ export const ImportStudentsForm: FC<Props> = ({ setResData }) => {
 
   return (
     <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col lg:flex-row items-center justify-center h-full bg-primary-color md:my-4 ld:my-2">
+      <div className="flex flex-col lg:flex-row items-center justify-center h-full bg-primary-color md:px-2 md:my-4 ld:my-2">
         <FileInputField register={register('csv')} text={translations.addStudents.form.chooseFile} error={errors.csv} />
-        <CustomButton type="submit" text={translations.addStudents.form.submit} />
+        <CustomButton type="submit" className="w-60" text={translations.addStudents.form.submit} />
       </div>
     </form>
   );
