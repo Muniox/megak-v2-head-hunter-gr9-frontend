@@ -1,7 +1,13 @@
-import { Control, useFieldArray } from 'react-hook-form';
+import { Control, FieldArrayWithId, UseFieldArrayAppend, UseFieldArrayRemove, useFieldArray } from 'react-hook-form';
 import { StudentProfile } from '../types/student-profile.request';
 
-export const useFieldProjectUrls = (control: Control<StudentProfile, any>) => {
+type UseFieldProjectUrls = {
+  projectUrlsFields: FieldArrayWithId<StudentProfile, 'projectUrls', 'id'>[];
+  projectUrlsAppend: UseFieldArrayAppend<StudentProfile, 'projectUrls'>;
+  projectUrlsRemove: UseFieldArrayRemove;
+};
+
+export const useFieldProjectUrls = (control: Control<StudentProfile, unknown>): UseFieldProjectUrls => {
   const {
     fields: projectUrlsFields,
     append: projectUrlsAppend,

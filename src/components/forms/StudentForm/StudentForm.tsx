@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ClientApiUserResponse } from '@frontendTypes';
 import { useNavigate } from 'react-router-dom';
 import { StudentProfileRequest } from '@backendTypes';
@@ -25,7 +25,7 @@ import {
 } from './Forms';
 import { StudentProfile } from './types/student-profile.request';
 
-export const StudentForm = () => {
+export const StudentForm: FC = () => {
   const { control, handleSubmit, errors } = useFormCustom();
   const { projectUrlsFields, projectUrlsAppend, projectUrlsRemove } = useFieldProjectUrls(control);
   const { portfolioUrlsFields, portfolioUrlsAppend, portfolioUrlsRemove } = useFieldPortfolioUrls(control);

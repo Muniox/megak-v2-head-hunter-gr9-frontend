@@ -3,8 +3,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { StudentProfile } from '../types/student-profile.request';
 import { defaultValues } from '../utils/defaultValues';
 import { schema } from '../utils/formSchema';
+import { UseFormCustom } from '../types/hookTypes';
 
-export const useFormCustom = () => {
+export const useFormCustom = (): UseFormCustom => {
   const {
     control,
     handleSubmit,
