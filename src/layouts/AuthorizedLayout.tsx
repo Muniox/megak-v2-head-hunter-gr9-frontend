@@ -6,7 +6,7 @@ export const AuthorizedLayout = () => {
   return (
     <div>
       <Header />
-      <div className="flex flex-col items-center justify-start w-full h-screen bg-primary-color ">
+      <div className="flex flex-col items-center justify-start w-full min-h-screen bg-primary-color text-white">
         <Outlet />
       </div>
     </div>
