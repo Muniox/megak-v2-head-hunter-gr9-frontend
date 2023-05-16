@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { Props } from '../types/formTypes';
+import { CustomButton } from '../../../base/CustomButton';
 
 export const projectUrls = yup.array().of(
   yup.object().shape({
@@ -31,18 +32,15 @@ export const ProjectUrlsController: FC<Props> = ({ control, errors, className, f
           )}
         />
         {errors.projectUrls && <span className="text-red-500">{errors.projectUrls[index]?.url?.message}</span>}
-        <button type="button" onClick={() => remove?.(index)}>
-          Usuń
-        </button>
+        <CustomButton text="Usuń" type="button" onClick={() => remove?.(index)} />
       </li>
     ))}
-    <button
+    <CustomButton
+      text="Dodaj"
       type="button"
       onClick={() => {
         append?.({ url: '' });
       }}
-    >
-      Dodaj
-    </button>
+    />
   </>
 );

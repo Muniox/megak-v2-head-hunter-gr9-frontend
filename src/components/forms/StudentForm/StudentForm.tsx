@@ -24,6 +24,7 @@ import {
   WorkExperienceController,
 } from './Forms';
 import { StudentProfile } from './types/student-profile.request';
+import { CustomButton } from '../../base';
 
 export const StudentForm: FC = () => {
   const { control, handleSubmit, errors } = useFormCustom();
@@ -117,13 +118,7 @@ export const StudentForm: FC = () => {
         <CoursesController control={control} errors={errors} className="my-4" />
       </fieldset>
 
-      <button
-        type="submit"
-        className="transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200
-        text-primary-font-color font-thin text-md py-2 px-4 tracking-wider bg-login-btn-color"
-      >
-        Zapisz
-      </button>
+      <CustomButton text="Zapisz" type="submit" />
     </form>
   );
 };
