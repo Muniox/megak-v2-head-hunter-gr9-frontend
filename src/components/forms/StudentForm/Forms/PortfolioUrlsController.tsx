@@ -1,14 +1,7 @@
 import React, { FC } from 'react';
 import { Controller } from 'react-hook-form';
-import * as yup from 'yup';
 import { Props } from '../types/formTypes';
 import { CustomButton } from '../../../base/CustomButton';
-
-export const portfolioUrls = yup.array().of(
-  yup.object().shape({
-    url: yup.string().url('Podaj prawidłowy link do portfolio'),
-  }),
-);
 
 export const PortfolioUrlsController: FC<Props> = ({ control, errors, className, fields, append, remove }) => (
   <>

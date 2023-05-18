@@ -1,10 +1,7 @@
 import React, { FC } from 'react';
 import { Controller } from 'react-hook-form';
-import * as yup from 'yup';
 import { ExpectedTypeWork } from '@backendTypes';
 import { Props } from '../types/formTypes';
-
-export const expectedTypeWork = yup.string().required('Pole wymagane');
 
 export const ExpectedTypeWorkController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>

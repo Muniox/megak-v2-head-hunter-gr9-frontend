@@ -1,10 +1,6 @@
 import React, { FC } from 'react';
 import { Controller } from 'react-hook-form';
-import * as yup from 'yup';
-
 import { Props } from '../types/formTypes';
-
-export const courses = yup.string().max(2000, 'Maksymalnie 2000 znaków.');
 
 export const CoursesController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>

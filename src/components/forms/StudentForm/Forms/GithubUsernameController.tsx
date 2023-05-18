@@ -1,14 +1,6 @@
 import React, { FC } from 'react';
 import { Controller } from 'react-hook-form';
-import * as yup from 'yup';
 import { Props } from '../types/formTypes';
-
-export const githubUsername = yup
-  .string()
-  .min(1, 'Minimalna ilość znaków 1')
-  .max(39, 'Maksymalna ilość znaków 39')
-  .matches(/^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/)
-  .required('Pole wymagane');
 
 export const GithubUsernameController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>

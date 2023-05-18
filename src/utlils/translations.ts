@@ -108,4 +108,63 @@ export const translations = {
       submit: 'Dodaj',
     },
   },
+  studentInfo: {
+    schema: {
+      bio: {
+        max: 'Maksymalnie 1000 znaków.',
+      },
+      courses: {
+        max: 'Maksymalna ilość 2000 znaków.',
+      },
+      education: {
+        max: 'Maksymalnie 2000 znaków.',
+      },
+      expectedContractType: {
+        required: 'Pole wymagane',
+      },
+      expectedSalary: {
+        min: 'Minimalna wartość 1',
+        max: 'Maksymalna wartość 9999999999',
+      },
+      expectedTypeWork: {
+        required: 'Pole wymagane',
+      },
+      githubUsername: {
+        min: 'Minimalna ilość znaków 1',
+        max: 'Maksymalna ilość znaków 39',
+        matches: 'Podaj poprawny nick z githuba',
+        required: 'Pole wymagane',
+      },
+      monthsOfCommercialExp: {
+        min: 'Minimalna ilość miesięcy nie może być mniejsza niż 0',
+        reqired: 'Pole wymagane',
+      },
+      portfolioUrls: {
+        url: 'Podaj prawidłowy link do portfolio',
+      },
+      projectUrls: {
+        url: 'Podaj prawidłowy link do projektu',
+      },
+      targetWorkCity: {
+        min: 'Minimalna ilość znaków 1',
+        max: 'Maksymalna ilość znaków 100',
+      },
+      workExperience: {
+        max: 'Maksymalna ilość znaków 2000',
+      },
+      tel: {
+        matches: 'Podaj poprawny numer telefonu',
+      },
+      firstName: {
+        min: 'Minimalna ilość znaków 1',
+        max: 'Maksymalna ilość znaków 50',
+        required: 'Pole wymagane',
+      },
+      lastName: {
+        min: 'Minimalna ilość znaków 1.',
+        max: 'Maksymalna ilość znaków 50.',
+        required: 'Pole wymagane',
+      },
+    },
+  },
 };

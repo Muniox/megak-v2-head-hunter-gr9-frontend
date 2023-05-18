@@ -1,9 +1,6 @@
 import React, { FC } from 'react';
 import { Controller } from 'react-hook-form';
-import * as yup from 'yup';
 import { Props } from '../types/formTypes';
-
-export const canTakeApprenticeship = yup.boolean();
 
 export const CanTakeApprenticeshipController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>

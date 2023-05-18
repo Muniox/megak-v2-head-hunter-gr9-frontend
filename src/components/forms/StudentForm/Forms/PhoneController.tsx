@@ -1,9 +1,6 @@
 import React, { FC } from 'react';
 import { Controller } from 'react-hook-form';
-import * as yup from 'yup';
 import { Props } from '../types/formTypes';
-
-export const tel = yup.string().matches(/^[\d+-]{3,25}$/, 'Podaj poprawny numer telefonu');
 
 export const PhoneController: FC<Props> = ({ control, errors, className }) => (
   <div className={className}>
