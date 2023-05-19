@@ -25,6 +25,7 @@ import {
 } from './Forms';
 import { StudentProfile } from './types/student-profile.request';
 import { CustomButton } from '../../base';
+import { apiServer, endpoints } from '../../../services';
 
 export const StudentForm: FC = () => {
   const { control, handleSubmit, errors } = useFormCustom();
@@ -33,34 +34,37 @@ export const StudentForm: FC = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (inputs: StudentProfile) => {
-    console.log(inputs);
     const portfolioUrls: string[] = [];
-    inputs.projectUrls.map((item) => portfolioUrls.push(item.url));
+    inputs.projectUrls.map((item) => {
+      if (item.url !== '') {
+        portfolioUrls.push(item.url);
+      }
+    });
 
     const projectUrls: string[] = [];
-    inputs.projectUrls.map((item) => projectUrls.push(item.url));
+    inputs.projectUrls.map((item) => {
+      if (item.url !== '') {
+        projectUrls.push(item.url);
+      }
+    });
 
-    const newInputs: StudentProfileRequest = {
+    const data: StudentProfileRequest = {
       ...inputs,
       portfolioUrls,
       projectUrls,
     };
 
-    const data = await fetch('http://localhost:3001/api/students/profile', {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newInputs),
-    });
-    const response = (await data.json()) as ClientApiUserResponse;
-    if (response.ok) {
-      navigate('/');
-    } else {
-      throw new Error(
-        Array.isArray(response.error) ? response.error[0].message : response.error?.message || 'Unknown error',
+    try {
+      console.log(data);
+      const response = await apiServer.post<StudentProfileRequest, ClientApiUserResponse>(
+        endpoints.studentProfile,
+        data,
       );
+      if (response.ok && response.data) {
+        navigate('/');
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
   };
 

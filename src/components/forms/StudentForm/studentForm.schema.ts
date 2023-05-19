@@ -1,7 +1,7 @@
-import { translations } from 'src/utlils/translations';
+import { translations } from '../../../utlils/translations';
 import * as yup from 'yup';
 
-const { schema: s } = translations.studentInfo;
+const { schema: s } = translations.studentInfo.form;
 
 const schema = yup.object().shape({
   bio: yup.string().max(1000, s.bio.max),
