@@ -1,26 +1,17 @@
 import React, { FC } from 'react';
-import { ExpectedContractType, ExpectedTypeWork, StudentGradesAndEmpExpectationsResponse } from '@backendTypes';
+import { BasicStudentResponse } from '@backendTypes';
 import { translations } from '../../../utlils/translations';
+import {
+  translateBooleanToYesNo,
+  translateExpectedContractType,
+  translateExpectedTypeWork,
+} from '../../../utlils/translate.helpers';
 
 interface Props {
-  student: StudentGradesAndEmpExpectationsResponse;
+  student: BasicStudentResponse;
 }
 
 export const StudentDetailsRow: FC<Props> = ({ student }) => {
-  const translateBooleanToYesNo = (value: boolean): string =>
-    value ? translations.studentDetails.values.boolean.true : translations.studentDetails.values.boolean.false;
-
-  const translateEnumValue = (value: string, translationMap: { [key: string]: string }): string => {
-    const transformedKey = value.replace(/_/g, '_').toUpperCase();
-    return translationMap[transformedKey] || translationMap['NO-PREFERENCE'];
-  };
-
-  const translateExpectedTypeWork = (value: ExpectedTypeWork): string =>
-    translateEnumValue(value, translations.studentDetails.values.expectedTypeWork);
-
-  const translateExpectedContractType = (value: ExpectedContractType): string =>
-    translateEnumValue(value, translations.studentDetails.values.expectedContractType);
-
   const fields = [
     { label: translations.studentDetails.labels.courseCompletion, value: student.details.grades.courseCompletion },
     { label: translations.studentDetails.labels.courseEngagement, value: student.details.grades.courseEngagement },
