@@ -28,6 +28,10 @@ const router = createBrowserRouter([
     element: <Registration />,
   },
   {
+    path: routes.hrTalk,
+    element: <AvailableStudents />,
+  },
+  {
     path: '/activation',
     element: <Navigate to={routes.registration} />,
   },

@@ -10,4 +10,5 @@ export const routes = {
   availableStudents: '/dashboard/available-students',
   toTalk: '/dashboard/to-talk',
   addStudentInfo: '/dashboard/student-info',
+  hrTalk: '/to-talk',
 };
