@@ -7,7 +7,7 @@ export const AvailableStudents = () => {
     <div className="flex flex-col items-center justify-between w-full bg-secondary-color">
       <div className="w-full  px-4 pt-4">
         <div className="border border-available-students-details-divider-line-color">
-          <StudentsTable list={mockStudentsList} />;
+          <StudentsTable list={mockStudentsList} variant="available" />;
         </div>
       </div>
     </div>

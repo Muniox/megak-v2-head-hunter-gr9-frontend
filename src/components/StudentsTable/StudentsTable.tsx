@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 import { StudentRow } from './components/StudentRow';
-import { StudentGradesAndEmpExpectationsResponse } from '@backendTypes';
+import { BasicStudentResponse } from '@backendTypes';
 import { StudentDetailsRow } from './components/StudentDetailsRow';
 interface Props {
-  list: StudentGradesAndEmpExpectationsResponse[];
+  list: BasicStudentResponse[];
+  variant: 'available' | 'toTalk';
 }
-export const StudentsTable: React.FC<Props> = ({ list }) => {
+export const StudentsTable: React.FC<Props> = ({ list, variant }) => {
   const [toggles, setToggles] = useState<{ [id: string]: boolean }>({});
 
   const toggleDetails = (id: string) => {
@@ -17,13 +18,14 @@ export const StudentsTable: React.FC<Props> = ({ list }) => {
       <div className="flex flex-col items-center justify-center w-full bg-secondary-color">
         <div className="overflow-x-scroll w-full ">
           <div className="pt-2 inline-block w-full x-4">
-            <table className="w-full ">
+            <table className="w-full">
               {list.map((student) => (
                 <tbody key={student.studentId}>
                   <StudentRow
                     student={student}
                     toggleDetails={() => toggleDetails(student.studentId)}
                     isDetailsVisible={toggles[student.studentId] || false}
+                    variant={variant}
                   />
                   {toggles[student.studentId] && <StudentDetailsRow student={student} />}
                 </tbody>
