@@ -1,7 +1,6 @@
-import { StudentGradesAndEmpExpectationsResponse } from '@backendTypes';
-import { ExpectedContractType, ExpectedTypeWork } from '../../../backend/src/types/student-profile/student-profile';
+import { ExpectedContractType, ExpectedTypeWork, BasicStudentResponse, PageMetaResponse } from '@backendTypes';
 
-export const mockStudentsList: StudentGradesAndEmpExpectationsResponse[] = [
+export const mockStudentsList: BasicStudentResponse[] = [
   {
     studentId: 'a413dbc5-f91a-4500-a41f-4b46bc54e5ec',
     createdAt: new Date(),
@@ -66,3 +65,12 @@ export const mockStudentsList: StudentGradesAndEmpExpectationsResponse[] = [
     },
   },
 ];
+
+export const mockPagination: PageMetaResponse = {
+  page: 3,
+  take: 1,
+  itemCount: 55,
+  pageCount: 12,
+  hasNextPage: false,
+  hasPreviousPage: true,
+};
