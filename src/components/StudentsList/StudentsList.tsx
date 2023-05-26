@@ -14,7 +14,7 @@ export const StudentsList: React.FC<Props> = ({ list, variant }) => {
     setToggles((prevToggles) => ({ ...prevToggles, [id]: !prevToggles[id] }));
   };
   return (
-    <div className="flex flex-col items-center justify-between w-full ">
+    <div className="flex flex-col items-center justify-between w-full border-t-2 border-tertiary-color">
       <div className="w-full">
         <div className="border border-secondary-divider-line-color py-4">
           {list.map((student) => (

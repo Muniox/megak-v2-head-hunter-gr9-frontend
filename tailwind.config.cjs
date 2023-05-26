@@ -33,6 +33,12 @@ module.exports = {
       fontSize: {
         '2xs' : '0.65rem',
         '3xs': '0.50rem'
+      },
+      maxWidth: {
+        'maxAppWidth': '89.375rem', // 1430px
+      },
+      screens: {
+        'maxAppWidth': '89.375rem', // 1430px
       }
     },
   },
