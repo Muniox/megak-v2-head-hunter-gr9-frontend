@@ -11,7 +11,7 @@ interface Props {
   student: BasicStudentResponse;
 }
 
-export const StudentDetailsRow: FC<Props> = ({ student }) => {
+export const StudentDetailsTable: FC<Props> = ({ student }) => {
   const fields = [
     { label: translations.studentDetails.labels.courseCompletion, value: student.details.grades.courseCompletion },
     { label: translations.studentDetails.labels.courseEngagement, value: student.details.grades.courseEngagement },
