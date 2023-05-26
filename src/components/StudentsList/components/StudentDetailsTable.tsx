@@ -44,23 +44,20 @@ export const StudentDetailsTable: FC<Props> = ({ student }) => {
   ];
 
   return (
-    <table className="w-full">
-      <tbody>
-        <tr className="bg-student-information-field-color text-left text-xs align-top text-secondary-font-color">
+    <table className="w-full bg-student-information-field-color text-left text-secondary-font-color h-28">
+      <thead>
+        <tr>
           {fields.map((field, index) => (
-            <th key={index} className="px-2 py-1.5 border-r-2 border-secondary-color">
+            <th key={index} className="align-top text-xs border-r-2 border-secondary-color p-4">
               {field.label}
             </th>
           ))}
         </tr>
-      </tbody>
+      </thead>
       <tbody>
-        <tr className="bg-student-information-field-color pb-6 ">
+        <tr>
           {fields.map((field, index) => (
-            <td
-              key={index}
-              className="px-2 py-1 text-xs text-secondary-font-color font-black border-r-2 border-secondary-color"
-            >
+            <td key={index} className="align-top text-sm font-bold border-r-2 border-secondary-color px-4">
               {field.value} {index < 4 && <span className="font-normal">/5</span>}
             </td>
           ))}
