@@ -39,7 +39,7 @@ export const Navbar: React.FC<Props> = ({ role }) => {
           <NavLink
             key={index}
             to={link.route}
-            className="hover:border-login-btn-color ease-linear hover:border-b-2 border-t-0 px-7 pb-3.5 pt-4 text-sm text-secondary-font-color hover:text-primary-font-color"
+            className="ease-linear hover:border-b-2 px-7 pb-3.5 pt-4 text-lg text-secondary-font-color hover:border-btn-color"
           >
             {link.text}
           </NavLink>
