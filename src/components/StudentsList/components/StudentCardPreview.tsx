@@ -13,14 +13,14 @@ interface Props {
 
 export const StudentCardPreview: FC<Props> = ({ student, toggleDetails, isDetailsVisible, variant = 'default' }) => {
   return (
-    <div className="w-full border-b-4 border-available-students-details-divider-line-color">
-      {variant === 'toTalk' && <StudentToTalkPreviewContent student={student} />}
-      {variant === 'available' && <StudentAvailablePreviewContent student={student} />}
-      <div className="align-top">
-        <button onClick={toggleDetails}>
-          {isDetailsVisible ? <img src={ArrowUp} alt="arrow up" /> : <img src={ArrowDown} alt="arrow down" />}
-        </button>
+    <div className="flex items-center px-4 text-primary-font-color">
+      <div className="flex justify-between items-center w-full pr-2">
+        {variant === 'available' && <StudentAvailablePreviewContent student={student} />}
+        {variant === 'toTalk' && <StudentToTalkPreviewContent student={student} />}
       </div>
+      <button onClick={toggleDetails}>
+        {isDetailsVisible ? <img src={ArrowUp} alt="arrow up" /> : <img src={ArrowDown} alt="arrow down" />}
+      </button>
     </div>
   );
 };

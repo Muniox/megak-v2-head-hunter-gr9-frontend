@@ -13,16 +13,12 @@ export const StudentAvailablePreviewContent: FC<Props> = ({ student }) => {
   };
   return (
     <>
-      <div className="py-6 text-primary-font-color font-thin text-sm">
+      <div className="py-5 font-normal text-lg">
         {student.details.profile.firstName} {student.details.profile.lastName}
       </div>
-      <div className="flex justify-end items-center">
-        <div className="flex items-center">
-          <CustomButton type="button" onClick={handleBookACall} className="mr-2">
-            {translations.studentRow.buttons.bookACall}
-          </CustomButton>
-        </div>
-      </div>
+      <CustomButton type="button" onClick={handleBookACall}>
+        {translations.studentRow.buttons.bookACall}
+      </CustomButton>
     </>
   );
 };

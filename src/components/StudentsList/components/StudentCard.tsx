@@ -12,17 +12,18 @@ interface Props {
 
 export const StudentCard: FC<Props> = ({ student, toggleDetails, isDetailsVisible, variant }) => {
   return (
-    <div key={student.studentId}>
+    <div className="border-b-8 border-tertiary-color">
       <StudentCardPreview
+        key={student.studentId}
         student={student}
         toggleDetails={toggleDetails}
         isDetailsVisible={isDetailsVisible}
         variant={variant}
       />
       {isDetailsVisible && (
-        <table className="w-full">
-          <StudentDetailsTable student={student} />
-        </table>
+        <div className="overflow-x-auto">
+          <StudentDetailsTable key={student.studentId} student={student} />
+        </div>
       )}
     </div>
   );

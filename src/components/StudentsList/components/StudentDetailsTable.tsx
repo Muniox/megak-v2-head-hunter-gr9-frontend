@@ -44,24 +44,28 @@ export const StudentDetailsTable: FC<Props> = ({ student }) => {
   ];
 
   return (
-    <>
-      <tr className="bg-student-information-field-color text-left text-2xs align-top font-sans text-available-students-details-font-color">
-        {fields.map((field, index) => (
-          <th key={index} className="px-2 py-1.5 border-r-2 border-secondary-color">
-            {field.label}
-          </th>
-        ))}
-      </tr>
-      <tr className="bg-student-information-field-color pb-6 border-b-8 border-primary-border-color">
-        {fields.map((field, index) => (
-          <td
-            key={index}
-            className="px-2 py-1 text-xs text-available-students-details-font-color font-sans font-black border-r-2 border-secondary-color"
-          >
-            {field.value} {index < 4 && <span className="font-normal">/5</span>}
-          </td>
-        ))}
-      </tr>
-    </>
+    <table className="w-full">
+      <tbody>
+        <tr className="bg-student-information-field-color text-left text-xs align-top text-secondary-font-color">
+          {fields.map((field, index) => (
+            <th key={index} className="px-2 py-1.5 border-r-2 border-secondary-color">
+              {field.label}
+            </th>
+          ))}
+        </tr>
+      </tbody>
+      <tbody>
+        <tr className="bg-student-information-field-color pb-6 ">
+          {fields.map((field, index) => (
+            <td
+              key={index}
+              className="px-2 py-1 text-xs text-secondary-font-color font-black border-r-2 border-secondary-color"
+            >
+              {field.value} {index < 4 && <span className="font-normal">/5</span>}
+            </td>
+          ))}
+        </tr>
+      </tbody>
+    </table>
   );
 };

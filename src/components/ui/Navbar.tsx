@@ -34,12 +34,12 @@ export const Navbar: React.FC<Props> = ({ role }) => {
 
   return (
     <div className="flex items-center justify-start w-4/5 h-16 bg-secondary-color relative mt-44 py-6 z-10">
-      <div className="mb-3 ml-0 flex list-none flex-row flex-wrap items-center justify-start absolute inset-0 pb-5 border-b border-divider-line-color">
+      <div className="mb-3 ml-0 flex list-none flex-row flex-wrap items-center justify-start absolute inset-0 pb-5 border-b border-primary-divider-line-color">
         {linksToDisplay.map((link, index) => (
           <NavLink
             key={index}
             to={link.route}
-            className="hover:border-login-btn-color ease-linear hover:border-b-2 border-t-0 px-7 pb-3.5 pt-4 text-sm text-available-students-details-font-color hover:text-primary-font-color"
+            className="hover:border-login-btn-color ease-linear hover:border-b-2 border-t-0 px-7 pb-3.5 pt-4 text-sm text-secondary-font-color hover:text-primary-font-color"
           >
             {link.text}
           </NavLink>

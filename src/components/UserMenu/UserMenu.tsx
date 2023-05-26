@@ -12,7 +12,7 @@ export const UserMenu = () => {
         <div className="relative inline-block text-left">
           <button
             type="button"
-            className="inline-flex w-full items-center justify-center gap-x-1.5 bg-primary-border-color px-3 py-2 text-md text-primary-font-color"
+            className="inline-flex w-full items-center justify-center gap-x-1.5 bg-tertiary-color px-3 py-2 text-md text-primary-font-color"
             onClick={() => setToggle(!toggle)}
           >
             <svg
@@ -56,9 +56,9 @@ export const UserMenu = () => {
           </button>
           {toggle && (
             // TODO tutaj można wydzielić osobny komponent
-            <div className="absolute right-0 z-10 md:mt-3 w-64 origin-top-right bg-primary-border-color py-2">
+            <div className="absolute right-0 z-10 md:mt-3 w-64 origin-top-right bg-tertiary-color py-2">
               <ul>
-                <li className="block px-6 py-2 text-primary-font-color hover:bg-primary-color hover:text-primary-placeholder-font-color border-b-2 border-divider-line-color">
+                <li className="block px-6 py-2 text-primary-font-color hover:bg-primary-color hover:text-primary-placeholder-font-color border-b-2 border-primary-divider-line-color">
                   <Link to={routes.dashboard}>Konto</Link>
                 </li>
                 <li className="block px-6 py-2 text-primary-font-color hover:bg-primary-color hover:text-primary-placeholder-font-color">
