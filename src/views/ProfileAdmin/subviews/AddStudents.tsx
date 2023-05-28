@@ -7,8 +7,8 @@ export const AddStudents: React.FC = () => {
   const [resData, setResData] = useState<ImportResultResponse | null>(null);
 
   return (
-    <div className="flex flex-col items-center justify-start w-4/5 h-full mb-1 md:mb-3 md:h-5/6 overflow-hidden bg-secondary-color">
-      <h1 className="flex text-white text-lg md:text-2xl mt-2 md:mt-10 lg:mt-16">{translations.addStudents.title}</h1>
+    <>
+      <h1 className="flex text-white text-2xl md:text-3xl mt-5 md:mt-10 lg:mt-20">{translations.addStudents.title}</h1>
       <div className="flex flex-col text-sm lg:text-lg lg:flex-row w-full lg:w-4/5 px-2 md:px-0 md:w-4/5 mt-2 md:mt-8 lg:mt-8 md:py-6">
         <ImportStudentsForm setResData={setResData} />
       </div>
@@ -40,6 +40,6 @@ export const AddStudents: React.FC = () => {
           )}
         </div>
       )}
-    </div>
+    </>
   );
 };

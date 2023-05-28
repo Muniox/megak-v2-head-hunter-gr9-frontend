@@ -8,7 +8,7 @@ export const AddHr: React.FC = () => {
   const [hrData, setHrData] = useState<HrCreatedResponse | null>(null);
 
   return (
-    <div className="flex flex-col items-center justify-start w-4/5 h-3/5 md:h-3/4 overflow-hidden bg-secondary-color">
+    <>
       <h1 className="flex text-white text-2xl md:text-3xl mt-5 md:mt-10 lg:mt-20">{translations.addHr.title}</h1>
       <div className="flex items-center justify-center h-fit py-4 lg:h-2/3 lg:w-1/2 bg-primary-color md:mt-10 lg:pb-4 mt-4">
         <AddHrForm setHrData={setHrData} />
@@ -20,6 +20,6 @@ export const AddHr: React.FC = () => {
           </h3>
         </div>
       )}
-    </div>
+    </>
   );
 };
