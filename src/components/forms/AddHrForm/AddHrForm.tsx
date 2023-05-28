@@ -68,7 +68,9 @@ export const AddHrForm: FC<Props> = ({ setHrData }) => {
           error={errors.maxReservedStudents}
         />
       </div>
-      <CustomButton type="submit" className="w-52 lg:w-96 md:w-60 my-2 h-10" text={translations.addHr.form.submit} />
+      <CustomButton type="submit" className="w-52 lg:w-96 md:w-60 my-2 h-10">
+        {translations.addHr.form.submit}
+      </CustomButton>
     </form>
   );
 };

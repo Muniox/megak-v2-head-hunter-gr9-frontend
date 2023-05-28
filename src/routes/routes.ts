@@ -9,5 +9,5 @@ export const routes = {
   addHr: '/dashboard/add-hr',
   availableStudents: '/dashboard/available-students',
   toTalk: '/dashboard/to-talk',
-  hrTalk: '/to-talk',
+  studentDetails: '/dashboard/student',
 };

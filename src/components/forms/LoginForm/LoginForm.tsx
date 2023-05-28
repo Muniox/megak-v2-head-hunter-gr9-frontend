@@ -65,7 +65,7 @@ export const LoginForm: FC = () => {
         <Link to={routes.forgetPassword}>{translations.login.links.forgotPassword}</Link>
       </p>
       <AuthButtonWrapper>
-        <CustomButton type="submit" text={translations.login.form.submit} />
+        <CustomButton type="submit">{translations.login.form.submit}</CustomButton>
         <p className="text-primary-font-color font-thin text-sm tracking-widest">
           {translations.login.descriptions.noAccount}{' '}
           <Link to={routes.registration}>

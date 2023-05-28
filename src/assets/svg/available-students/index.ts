@@ -1,6 +1,6 @@
-import ArrowUp from './ArrowUp.svg';
-import ArrowBack from './ArrowBack.svg';
+import ArrowUp from './arrow-up.svg';
+import ArrowDown from './arrow-down.svg';
 import Magnifier from './Magnifier.svg';
 import GreyRectangle from './GreyRectangle.svg';
 
-export { ArrowUp, Magnifier, GreyRectangle, ArrowBack };
+export { ArrowUp, Magnifier, GreyRectangle, ArrowDown };
