@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 
-import { BasicStudentResponse } from '@backendTypes';
+import { BasicStudentResponse, PageMetaResponse } from '@backendTypes';
 
 import { StudentCard } from './components/StudentCard';
+import { Pagination } from '../Pagination/Pagination';
+
 interface Props {
   list: BasicStudentResponse[];
+  meta: PageMetaResponse;
   variant: 'available' | 'toTalk';
 }
-export const StudentsList: React.FC<Props> = ({ list, variant }) => {
+export const StudentsList: React.FC<Props> = ({ list, meta, variant }) => {
   const [toggles, setToggles] = useState<{ [id: string]: boolean }>({});
 
   const toggleDetails = (id: string) => {
@@ -28,6 +31,7 @@ export const StudentsList: React.FC<Props> = ({ list, variant }) => {
           ))}
         </div>
       </div>
+      <Pagination meta={meta} />
     </div>
   );
 };
