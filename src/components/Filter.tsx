@@ -1,10 +1,10 @@
 import React from 'react';
 
 export const Filter: React.FC = () => (
-  <div className="flex relative inline-block mb-1">
+  <div className="flex relative mb-1">
     <button
       type="button"
-      className="inline-flex w-full items-center justify-center bg-primary-border-color px-2 py-1.5 mr-4 text-sm text-available-students-details-font-color hover:text-primary-font-color border-none rounded-sm"
+      className="inline-flex w-full items-center justify-center bg-tertiary-color px-2 py-1.5 mr-4 text-sm text-secondary-font-color hover:text-primary-font-color border-none rounded-sm"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

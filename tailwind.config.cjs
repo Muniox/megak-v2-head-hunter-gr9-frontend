@@ -9,14 +9,14 @@ module.exports = {
       colors: {
         'primary-color': '#222224',
         'secondary-color': '#292A2B',
+        "tertiary-color": "#1E1E1F",
         'primary-font-color': '#F7F7F7',
-        'primary-border-color': '#1E1E1F',
+        "secondary-font-color": "#CFCFCF",
         'btn-color': '#E02735',
         'btn-hover-color': '#C92929',
         'primary-placeholder-font-color': '#7E7E7E',
-        'divider-line-color': '#202122',
-        'available-students-details-font-color': '#CFCFCF',
-        'available-students-details-divider-line-color': '#262728',
+        'primary-divider-line-color': '#202122',
+        'secondary-divider-line-color': '#262728',
         'dropdown-svg-and-search-placeholder-color': '#666666',
         'right-arrow-svg-color': '#333333',
         'filter-svg-color': '#4D4D4D',
@@ -28,13 +28,17 @@ module.exports = {
         'cv-github-color': '#0B8BD4',
       },
       fontFamily: {
-        sans: ['Graphik', 'sans-serif'],
-        serif: ['Merriweather', 'serif'],
-        cataman: ['Catamaran', 'Regular'],
+        catamaran: ['Catamaran', 'sans-serif'],
       },
       fontSize: {
         '2xs' : '0.65rem',
         '3xs': '0.50rem'
+      },
+      maxWidth: {
+        'maxAppWidth': '89.375rem', // 1430px
+      },
+      screens: {
+        'maxAppWidth': '89.375rem', // 1430px
       }
     },
   },

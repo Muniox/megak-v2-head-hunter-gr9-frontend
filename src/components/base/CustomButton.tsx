@@ -11,7 +11,7 @@ interface CustomButtonProps {
 
 export const CustomButton: React.FC<CustomButtonProps> = ({ type, to, children, className, onClick }) => {
   const baseClasses =
-    'transition ease-in-out delay-100 duration-200 text-primary-font-color font-thin text-md py-2 px-4 tracking-wider bg-btn-color hover:bg-btn-hover-color focus:outline-none focus:ring-2 focus:ring-primary-font-color focus:ring-opacity-50';
+    'transition-opacity ease-out duration-300 text-primary-font-color font-normal  py-1.5 px-2.5 tracking-wider bg-btn-color hover:bg-btn-hover-color focus:outline-none focus:ring-2 focus:ring-primary-font-color focus:ring-opacity-50 leading-relaxed';
 
   const combinedClasses = className ? `${baseClasses} ${className}` : baseClasses;
 

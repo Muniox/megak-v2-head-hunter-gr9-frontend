@@ -14,7 +14,7 @@ export const SearchInput: React.FC = () => {
         <img className="py-2 h-15 w-15 " src={Magnifier} alt="magnifier" />
       </span>
       <input
-        className="placeholder:text-dropdown-svg-and-search-placeholder-color block  bg-primary-border-color w-full border-none rounded-sm py-1.5 pl-9 pr-3 shadow-sm focus:outline-none  sm:text-sm"
+        className="placeholder:text-dropdown-svg-and-search-placeholder-color block  bg-tertiary-color w-full border-none rounded-sm py-1.5 pl-9 pr-3 shadow-sm focus:outline-none  sm:text-sm"
         placeholder="Szukaj"
         type="text"
         name="search"

@@ -4,3 +4,4 @@ export * from './CenteredContainer';
 export * from './AuthButtonWrapper';
 export * from './AuthFormWrapper';
 export * from './FileInputFiled';
+export * from './Wrapper';

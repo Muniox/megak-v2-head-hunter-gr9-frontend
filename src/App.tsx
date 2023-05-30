@@ -7,11 +7,11 @@ import { Login } from './views/Login';
 import { Registration } from './views/Registration';
 import { AuthorizedLayout } from './layouts';
 import { ProtectedRoute, RequireAuth, routes } from './routes';
-import { AddHr } from './views/ProfileAdmin/components/AddHr';
-import { AddStudents } from './views/ProfileAdmin/components/AddStudents';
+import { AddHr } from './views/ProfileAdmin/subviews/AddHr';
+import { AddStudents } from './views/ProfileAdmin/subviews/AddStudents';
 import { UserRole } from '@backendTypes';
-import { AvailableStudents } from './views/ProfileHr/components/AvailableStudents';
-import { ToTalk } from './views/ProfileHr/components/ToTalk';
+import { AvailableStudents } from './views/ProfileHr/subviews/AvailableStudents';
+import { ToTalk } from './views/ProfileHr/subviews/ToTalk';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: routes.registration,
     element: <Registration />,
+  },
+  {
+    path: routes.hrTalk,
+    element: <AvailableStudents />,
   },
   {
     path: '/activation',
