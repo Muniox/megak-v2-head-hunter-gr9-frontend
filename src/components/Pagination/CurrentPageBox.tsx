@@ -7,9 +7,15 @@ interface Props {
 }
 export const CurrentPageBox: FC<Props> = ({ meta }) => {
   return (
-    <div className="flex justify-end text-sm text-available-students-details-font-color w-1/6">
-      <p className="px-2">{meta.page}</p>
-      <span className="w-1/2 mr-2"> z {meta.pageCount}</span>
+    <div className="flex flex-wrap text-center m-1 text-secondary-font-color">
+      <div className="m-2 text-md">
+        <div className="mx-auto pr-10">
+          <div className="flex flex-wrap">
+            <p className="px-1">{meta.page}</p>
+            <span className=""> z {meta.pageCount}</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

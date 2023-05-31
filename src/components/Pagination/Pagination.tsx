@@ -15,18 +15,15 @@ export const Pagination: FC<Props> = ({ meta }) => {
     const fetchData = async () => {
       const response = await fetch('http://localhost:3001/api/students/?order=DESC&page=1&take=2');
       return response.json();
-      console.log(response);
     };
     fetchData().catch(console.error);
   }, [page, take]);
 
   return (
-    <div className="flex mt-4 overflow-x-auto">
-      <div className="flex justify-end items-center w-full ">
-        <PageLimit meta={meta} setTake={setTake} />
-        <CurrentPageBox meta={meta} setPage={setPage} />
-        <Page meta={meta} setPage={setPage} />
-      </div>
+    <div className="flex justify-end items-center w-full">
+      <PageLimit meta={meta} setTake={setTake} />
+      <CurrentPageBox meta={meta} setPage={setPage} />
+      <Page meta={meta} setPage={setPage} />
     </div>
   );
 };
